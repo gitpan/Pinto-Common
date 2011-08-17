@@ -1,0 +1,56 @@
+
+use strict;
+use warnings;
+
+use Module::Build 0.3601;
+
+
+my %module_build_args = (
+  'build_requires' => {
+    'File::Find' => '0',
+    'File::Temp' => '0',
+    'Module::Build' => '0.3601',
+    'Test::Exception' => '0',
+    'Test::More' => '0'
+  },
+  'configure_requires' => {
+    'Module::Build' => '0.3601'
+  },
+  'dist_abstract' => 'Common modules for the pinto-* utilities',
+  'dist_author' => [
+    'Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>'
+  ],
+  'dist_name' => 'Pinto-Common',
+  'dist_version' => '0.013',
+  'license' => 'perl',
+  'module_name' => 'Pinto::Common',
+  'recommends' => {},
+  'recursive_test_files' => 1,
+  'requires' => {
+    'Carp' => '0',
+    'English' => '0',
+    'File::HomeDir' => '0',
+    'IO::File' => '0',
+    'IO::Handle' => '0',
+    'IO::String' => '0',
+    'Moose' => '0',
+    'Moose::Role' => '0',
+    'MooseX::Configuration' => '0',
+    'MooseX::LazyRequire' => '0',
+    'MooseX::Types' => '0',
+    'MooseX::Types::Moose' => '0',
+    'Path::Class' => '0',
+    'Path::Class::Dir' => '0',
+    'Path::Class::File' => '0',
+    'Readonly' => '0',
+    'URI' => '0',
+    'namespace::autoclean' => '0',
+    'perl' => '5.006'
+  },
+  'script_files' => []
+);
+
+
+my $build = Module::Build->new(%module_build_args);
+
+$build->create_build_script;
