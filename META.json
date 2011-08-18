@@ -50,6 +50,7 @@
             "Path::Class::Dir" : 0,
             "Path::Class::File" : 0,
             "Readonly" : 0,
+            "Term::ANSIColor" : 0,
             "URI" : 0,
             "namespace::autoclean" : 0,
             "perl" : "5.006"
@@ -67,27 +68,27 @@
    "provides" : {
       "Pinto::Common" : {
          "file" : "lib/Pinto/Common.pm",
-         "version" : "0.014"
+         "version" : "0.015"
       },
       "Pinto::Config" : {
          "file" : "lib/Pinto/Config.pm",
-         "version" : "0.014"
+         "version" : "0.015"
       },
       "Pinto::Logger" : {
          "file" : "lib/Pinto/Logger.pm",
-         "version" : "0.014"
+         "version" : "0.015"
       },
       "Pinto::Role::Configurable" : {
          "file" : "lib/Pinto/Role/Configurable.pm",
-         "version" : "0.014"
+         "version" : "0.015"
       },
       "Pinto::Role::Loggable" : {
          "file" : "lib/Pinto/Role/Loggable.pm",
-         "version" : "0.014"
+         "version" : "0.015"
       },
       "Pinto::Types" : {
          "file" : "lib/Pinto/Types.pm",
-         "version" : "0.014"
+         "version" : "0.015"
       }
    },
    "release_status" : "stable",
@@ -99,6 +100,6 @@
          "web" : "https://github.com/thaljef/Pinto-Common"
       }
    },
-   "version" : "0.014"
+   "version" : "0.015"
 }
 

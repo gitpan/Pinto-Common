@@ -21,7 +21,7 @@ my %module_build_args = (
     'Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>'
   ],
   'dist_name' => 'Pinto-Common',
-  'dist_version' => '0.014',
+  'dist_version' => '0.015',
   'license' => 'perl',
   'module_name' => 'Pinto::Common',
   'recommends' => {},
@@ -43,6 +43,7 @@ my %module_build_args = (
     'Path::Class::Dir' => '0',
     'Path::Class::File' => '0',
     'Readonly' => '0',
+    'Term::ANSIColor' => '0',
     'URI' => '0',
     'namespace::autoclean' => '0',
     'perl' => '5.006'

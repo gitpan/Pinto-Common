@@ -16,7 +16,7 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.014'; # VERSION
+our $VERSION = '0.015'; # VERSION
 
 #------------------------------------------------------------------------------
 # Moose attributes
@@ -78,6 +78,14 @@ has 'store' => (
     isa       => Str,
     key       => 'store',
     default   => 'Pinto::Store',
+);
+
+
+has 'nocolor' => (
+    is       => 'ro',
+    isa      => Bool,
+    key      => 'nocolor',
+    default  => 0,
 );
 
 
@@ -186,7 +194,7 @@ Pinto::Config - User configuration for Pinto
 
 =head1 VERSION
 
-version 0.014
+version 0.015
 
 =head1 DESCRIPTION
 
