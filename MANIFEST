@@ -16,6 +16,7 @@ lib/Pinto/Types.pm
 perlcritic.ini
 t/00-compile.t
 t/01-config.t
+t/02-logger.t
 weaver.ini
 xt/author/critic.t
 xt/author/pod-spell.t
