@@ -5,7 +5,7 @@ package Pinto::Types;
 use strict;
 use warnings;
 
-use MooseX::Types -declare => [ qw( AuthorID URI Dir File IO) ];
+use MooseX::Types -declare => [ qw( AuthorID URI Dir File IO StrOrFileOrURI) ];
 use MooseX::Types::Moose qw( Str ScalarRef ArrayRef FileHandle Object Int);
 
 use URI;
@@ -20,7 +20,7 @@ use namespace::autoclean;
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = '0.015'; # VERSION
+our $VERSION = '0.017'; # VERSION
 
 #-----------------------------------------------------------------------------
 
@@ -59,6 +59,11 @@ coerce File,
 
 #-----------------------------------------------------------------------------
 
+subtype StrOrFileOrURI,
+    as Str|File|URI;
+
+#-----------------------------------------------------------------------------
+
 sub _expand_tilde {
     my (@paths) = @_;
 
@@ -93,7 +98,7 @@ Pinto::Types - Moose types used within Pinto
 
 =head1 VERSION
 
-version 0.015
+version 0.017
 
 =head1 AUTHOR
 

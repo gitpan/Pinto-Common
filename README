@@ -2,7 +2,7 @@ NAME
     Pinto::Common - Common modules for the pinto-* utilities
 
 VERSION
-    version 0.015
+    version 0.017
 
 DESCRIPTION
     This distribution exists to provide modules that are used across

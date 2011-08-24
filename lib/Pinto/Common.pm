@@ -7,7 +7,7 @@ use warnings;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.015'; # VERSION
+our $VERSION = '0.017'; # VERSION
 
 #------------------------------------------------------------------------------
 1;
@@ -26,7 +26,7 @@ Pinto::Common - Common modules for the pinto-* utilities
 
 =head1 VERSION
 
-version 0.015
+version 0.017
 
 =head1 DESCRIPTION
 
