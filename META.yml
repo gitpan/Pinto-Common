@@ -28,11 +28,15 @@ no_index:
 provides:
   Pinto::Common:
     file: lib/Pinto/Common.pm
-    version: 0.017
+    version: 0.018
+  Pinto::Constants:
+    file: lib/Pinto/Constants.pm
+    version: 0.018
   Pinto::Types:
     file: lib/Pinto/Types.pm
-    version: 0.017
+    version: 0.018
 requires:
+  Exporter: 0
   File::HomeDir: 0
   IO::File: 0
   IO::Handle: 0
@@ -41,10 +45,11 @@ requires:
   MooseX::Types::Moose: 0
   Path::Class::Dir: 0
   Path::Class::File: 0
+  Readonly: 0
   URI: 0
   namespace::autoclean: 0
-  perl: 5.006
+  perl: 5.008
 resources:
   homepage: https://github.com/thaljef/Pinto-Common
   repository: https://github.com/thaljef/Pinto-Common
-version: 0.017
+version: 0.018

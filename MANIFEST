@@ -8,6 +8,7 @@ META.yml
 README
 dist.ini
 lib/Pinto/Common.pm
+lib/Pinto/Constants.pm
 lib/Pinto/Manual.pod
 lib/Pinto/Types.pm
 perlcritic.ini

@@ -23,12 +23,13 @@ my %module_build_args = (
     'Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>'
   ],
   'dist_name' => 'Pinto-Common',
-  'dist_version' => '0.017',
+  'dist_version' => '0.018',
   'license' => 'perl',
   'module_name' => 'Pinto::Common',
   'recommends' => {},
   'recursive_test_files' => 1,
   'requires' => {
+    'Exporter' => '0',
     'File::HomeDir' => '0',
     'IO::File' => '0',
     'IO::Handle' => '0',
@@ -37,9 +38,10 @@ my %module_build_args = (
     'MooseX::Types::Moose' => '0',
     'Path::Class::Dir' => '0',
     'Path::Class::File' => '0',
+    'Readonly' => '0',
     'URI' => '0',
     'namespace::autoclean' => '0',
-    'perl' => '5.006'
+    'perl' => '5.008'
   },
   'script_files' => []
 );
