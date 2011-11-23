@@ -5,8 +5,8 @@ package Pinto::Types;
 use strict;
 use warnings;
 
-use MooseX::Types -declare => [ qw( AuthorID URI Dir File IO StrOrFileOrURI) ];
-use MooseX::Types::Moose qw( Str ScalarRef ArrayRef FileHandle Object Int);
+use MooseX::Types -declare => [ qw( AuthorID URI Dir File IO Vers) ];
+use MooseX::Types::Moose qw( Str Num ScalarRef ArrayRef FileHandle Object Int);
 
 use URI;
 use Path::Class::Dir;
@@ -16,11 +16,12 @@ use IO::String;
 use IO::Handle;
 use IO::File;
 
+use version;
 use namespace::autoclean;
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = '0.018'; # VERSION
+our $VERSION = '0.019'; # VERSION
 
 #-----------------------------------------------------------------------------
 
@@ -32,6 +33,17 @@ subtype AuthorID,
 coerce AuthorID,
     from Str,
     via  { uc $_ };
+#-----------------------------------------------------------------------------
+
+class_type Vers, {class => 'version'};
+
+coerce Vers,
+    from Str,
+    via { version->parse($_) };
+
+coerce Vers,
+    from Num,
+    via { version->parse($_) };
 
 #-----------------------------------------------------------------------------
 
@@ -56,13 +68,6 @@ subtype File, as 'Path::Class::File';
 coerce File,
     from Str,             via { Path::Class::File->new( _expand_tilde($_) ) },
     from ArrayRef,        via { Path::Class::File->new( @{$_} ) };
-
-#-----------------------------------------------------------------------------
-
-subtype StrOrFileOrURI,
-    as Str|File|URI;
-
-#-----------------------------------------------------------------------------
 
 sub _expand_tilde {
     my (@paths) = @_;
@@ -98,7 +103,7 @@ Pinto::Types - Moose types used within Pinto
 
 =head1 VERSION
 
-version 0.018
+version 0.019
 
 =head1 AUTHOR
 

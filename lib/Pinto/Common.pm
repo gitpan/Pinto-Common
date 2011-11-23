@@ -7,7 +7,7 @@ use warnings;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.018'; # VERSION
+our $VERSION = '0.019'; # VERSION
 
 #------------------------------------------------------------------------------
 1;
@@ -26,7 +26,7 @@ Pinto::Common - Common modules for the pinto-* utilities
 
 =head1 VERSION
 
-version 0.018
+version 0.019
 
 =head1 DESCRIPTION
 
@@ -56,14 +56,6 @@ Search CPAN
 The default CPAN search engine, useful to view POD in HTML format.
 
 L<http://search.cpan.org/dist/Pinto-Common>
-
-=item *
-
-RT: CPAN's Bug Tracker
-
-The RT ( Request Tracker ) website is the default bug/issue tracking system for CPAN.
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Pinto-Common>
 
 =item *
 
@@ -101,16 +93,14 @@ L<http://deps.cpantesters.org/?module=Pinto::Common>
 
 =head2 Bugs / Feature Requests
 
-Please report any bugs or feature requests by email to C<bug-pinto-common at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Pinto-Common>. You will be automatically notified of any
-progress on the request by the system.
+L<https://github.com/thaljef/Pinto-Common/issues>
 
 =head2 Source Code
 
 
 L<https://github.com/thaljef/Pinto-Common>
 
-  git clone https://github.com/thaljef/Pinto-Common
+  git clone git://github.com/thaljef/Pinto-Common.git
 
 =head1 AUTHOR
 
