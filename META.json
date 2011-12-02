@@ -4,7 +4,7 @@
       "Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300003, CPAN::Meta::Converter version 2.112621",
+   "generated_by" : "Dist::Zilla version 4.300003, CPAN::Meta::Converter version 2.112150",
    "license" : [
       "perl_5"
    ],
@@ -34,48 +34,48 @@
       },
       "runtime" : {
          "requires" : {
-            "Exporter" : 0,
-            "File::HomeDir" : 0,
-            "IO::File" : 0,
-            "IO::Handle" : 0,
-            "IO::String" : 0,
-            "MooseX::Types" : 0,
-            "MooseX::Types::Moose" : 0,
-            "Path::Class::Dir" : 0,
-            "Path::Class::File" : 0,
-            "Readonly" : 0,
-            "URI" : 0,
-            "base" : 0,
-            "namespace::autoclean" : 0,
+            "Exporter" : "0",
+            "File::HomeDir" : "0",
+            "IO::File" : "0",
+            "IO::Handle" : "0",
+            "IO::String" : "0",
+            "MooseX::Types" : "0",
+            "MooseX::Types::Moose" : "0",
+            "Path::Class::Dir" : "0",
+            "Path::Class::File" : "0",
+            "Readonly" : "0",
+            "URI" : "0",
+            "base" : "0",
+            "namespace::autoclean" : "0",
             "perl" : "5.008",
-            "strict" : 0,
-            "version" : 0,
-            "warnings" : 0
+            "strict" : "0",
+            "version" : "0",
+            "warnings" : "0"
          }
       },
       "test" : {
          "requires" : {
-            "File::Find" : 0,
-            "File::Temp" : 0,
-            "FindBin" : 0,
-            "Moose" : 0,
-            "Path::Class" : 0,
-            "Test::More" : 0
+            "File::Find" : "0",
+            "File::Temp" : "0",
+            "FindBin" : "0",
+            "Moose" : "0",
+            "Path::Class" : "0",
+            "Test::More" : "0"
          }
       }
    },
    "provides" : {
       "Pinto::Common" : {
          "file" : "lib/Pinto/Common.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Pinto::Constants" : {
          "file" : "lib/Pinto/Constants.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Pinto::Types" : {
          "file" : "lib/Pinto/Types.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       }
    },
    "release_status" : "stable",
@@ -89,6 +89,6 @@
          "web" : "https://github.com/thaljef/Pinto-Common"
       }
    },
-   "version" : "0.019"
+   "version" : "0.020"
 }
 

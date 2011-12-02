@@ -5,7 +5,7 @@ package Pinto::Types;
 use strict;
 use warnings;
 
-use MooseX::Types -declare => [ qw( AuthorID URI Dir File IO Vers) ];
+use MooseX::Types -declare => [ qw( AuthorID Uri Dir File IO Vers) ];
 use MooseX::Types::Moose qw( Str Num ScalarRef ArrayRef FileHandle Object Int);
 
 use URI;
@@ -21,7 +21,7 @@ use namespace::autoclean;
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = '0.019'; # VERSION
+our $VERSION = '0.020'; # VERSION
 
 #-----------------------------------------------------------------------------
 
@@ -47,11 +47,11 @@ coerce Vers,
 
 #-----------------------------------------------------------------------------
 
-class_type URI, {class => 'URI'};
+class_type Uri, {class => 'URI'};
 
-coerce URI,
+coerce Uri,
     from Str,
-    via { 'URI'->new($_) };
+    via { URI->new($_) };
 
 #-----------------------------------------------------------------------------
 
@@ -103,7 +103,7 @@ Pinto::Types - Moose types used within Pinto
 
 =head1 VERSION
 
-version 0.019
+version 0.020
 
 =head1 AUTHOR
 
