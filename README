@@ -2,7 +2,7 @@ NAME
     Pinto::Common - Common modules for the pinto-* utilities
 
 VERSION
-    version 0.020
+    version 0.035
 
 DESCRIPTION
     This distribution exists to provide modules that are used across
@@ -42,8 +42,8 @@ SUPPORT
 
     *   CPAN Testers Matrix
 
-        The CPAN Testers Matrix is a website that provides a visual way to
-        determine what Perls/platforms PASSed for a distribution.
+        The CPAN Testers Matrix is a website that provides a visual overview
+        of the test results for a distribution on various Perls/platforms.
 
         <http://matrix.cpantesters.org/?dist=Pinto-Common>
 

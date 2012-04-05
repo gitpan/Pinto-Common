@@ -4,7 +4,7 @@
       "Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300003, CPAN::Meta::Converter version 2.112150",
+   "generated_by" : "Dist::Zilla version 4.300010, CPAN::Meta::Converter version 2.120630",
    "license" : [
       "perl_5"
    ],
@@ -34,13 +34,16 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp" : "0",
             "Exporter" : "0",
             "File::HomeDir" : "0",
             "IO::File" : "0",
             "IO::Handle" : "0",
             "IO::String" : "0",
+            "Moose::Role" : "0",
             "MooseX::Types" : "0",
             "MooseX::Types::Moose" : "0",
+            "Path::Class" : "0",
             "Path::Class::Dir" : "0",
             "Path::Class::File" : "0",
             "Readonly" : "0",
@@ -59,23 +62,119 @@
             "File::Temp" : "0",
             "FindBin" : "0",
             "Moose" : "0",
-            "Path::Class" : "0",
+            "Test::Exception" : "0",
             "Test::More" : "0"
          }
       }
    },
    "provides" : {
+      "Pinto::Attribute::archive" : {
+         "file" : "lib/Pinto/Attribute/archive.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Attribute::author" : {
+         "file" : "lib/Pinto/Attribute/author.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Attribute::format" : {
+         "file" : "lib/Pinto/Attribute/format.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Attribute::norecurse" : {
+         "file" : "lib/Pinto/Attribute/norecurse.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Attribute::out" : {
+         "file" : "lib/Pinto/Attribute/out.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Attribute::package" : {
+         "file" : "lib/Pinto/Attribute/package.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Attribute::path" : {
+         "file" : "lib/Pinto/Attribute/path.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Attribute::pausecfg" : {
+         "file" : "lib/Pinto/Attribute/pausecfg.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Attribute::username" : {
+         "file" : "lib/Pinto/Attribute/username.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Attribute::version" : {
+         "file" : "lib/Pinto/Attribute/version.pm",
+         "version" : "0.035"
+      },
       "Pinto::Common" : {
          "file" : "lib/Pinto/Common.pm",
-         "version" : "0.020"
+         "version" : "0.035"
       },
       "Pinto::Constants" : {
          "file" : "lib/Pinto/Constants.pm",
-         "version" : "0.020"
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::Add" : {
+         "file" : "lib/Pinto/Interface/Action/Add.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::Clean" : {
+         "file" : "lib/Pinto/Interface/Action/Clean.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::Import" : {
+         "file" : "lib/Pinto/Interface/Action/Import.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::List" : {
+         "file" : "lib/Pinto/Interface/Action/List.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::Mirror" : {
+         "file" : "lib/Pinto/Interface/Action/Mirror.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::Nop" : {
+         "file" : "lib/Pinto/Interface/Action/Nop.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::Pin" : {
+         "file" : "lib/Pinto/Interface/Action/Pin.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::Purge" : {
+         "file" : "lib/Pinto/Interface/Action/Purge.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::Rebuild" : {
+         "file" : "lib/Pinto/Interface/Action/Rebuild.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::Remove" : {
+         "file" : "lib/Pinto/Interface/Action/Remove.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::Statistics" : {
+         "file" : "lib/Pinto/Interface/Action/Statistics.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::Unpin" : {
+         "file" : "lib/Pinto/Interface/Action/Unpin.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Interface::Action::Verify" : {
+         "file" : "lib/Pinto/Interface/Action/Verify.pm",
+         "version" : "0.035"
+      },
+      "Pinto::Meta::Attribute::Trait::Postable" : {
+         "file" : "lib/Pinto/Meta/Attribute/Trait/Postable.pm",
+         "version" : "0.035"
       },
       "Pinto::Types" : {
          "file" : "lib/Pinto/Types.pm",
-         "version" : "0.020"
+         "version" : "0.035"
       }
    },
    "release_status" : "stable",
@@ -89,6 +188,6 @@
          "web" : "https://github.com/thaljef/Pinto-Common"
       }
    },
-   "version" : "0.020"
+   "version" : "0.035"
 }
 
