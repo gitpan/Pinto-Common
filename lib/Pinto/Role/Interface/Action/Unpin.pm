@@ -1,6 +1,6 @@
-# ABSTRACT: Interface for Action::Pin
+# ABSTRACT: Interface for Action::Unpin
 
-package Pinto::Interface::Action::Pin;
+package Pinto::Role::Interface::Action::Unpin;
 
 use Moose::Role;
 
@@ -8,12 +8,12 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Attribute::package
-         Pinto::Attribute::version );
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::package );
 
 #------------------------------------------------------------------------------
 
@@ -27,11 +27,11 @@ with qw( Pinto::Attribute::package
 
 =head1 NAME
 
-Pinto::Interface::Action::Pin - Interface for Action::Pin
+Pinto::Role::Interface::Action::Unpin - Interface for Action::Unpin
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

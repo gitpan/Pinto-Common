@@ -1,6 +1,6 @@
-# ABSTRACT: Interface for Action::Mirror
+# ABSTRACT: Interface for Action::Statistics
 
-package Pinto::Interface::Action::Mirror;
+package Pinto::Role::Interface::Action::Statistics;
 
 use Moose::Role;
 
@@ -8,7 +8,12 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
+
+#------------------------------------------------------------------------------
+
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::out );
 
 #------------------------------------------------------------------------------
 
@@ -22,11 +27,11 @@ our $VERSION = '0.035'; # VERSION
 
 =head1 NAME
 
-Pinto::Interface::Action::Mirror - Interface for Action::Mirror
+Pinto::Role::Interface::Action::Statistics - Interface for Action::Statistics
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

@@ -26,87 +26,90 @@ no_index:
     - examples
     - corpus
 provides:
-  Pinto::Attribute::archive:
-    file: lib/Pinto/Attribute/archive.pm
-    version: 0.035
-  Pinto::Attribute::author:
-    file: lib/Pinto/Attribute/author.pm
-    version: 0.035
-  Pinto::Attribute::format:
-    file: lib/Pinto/Attribute/format.pm
-    version: 0.035
-  Pinto::Attribute::norecurse:
-    file: lib/Pinto/Attribute/norecurse.pm
-    version: 0.035
-  Pinto::Attribute::out:
-    file: lib/Pinto/Attribute/out.pm
-    version: 0.035
-  Pinto::Attribute::package:
-    file: lib/Pinto/Attribute/package.pm
-    version: 0.035
-  Pinto::Attribute::path:
-    file: lib/Pinto/Attribute/path.pm
-    version: 0.035
-  Pinto::Attribute::pausecfg:
-    file: lib/Pinto/Attribute/pausecfg.pm
-    version: 0.035
-  Pinto::Attribute::username:
-    file: lib/Pinto/Attribute/username.pm
-    version: 0.035
-  Pinto::Attribute::version:
-    file: lib/Pinto/Attribute/version.pm
-    version: 0.035
   Pinto::Common:
     file: lib/Pinto/Common.pm
-    version: 0.035
+    version: 0.036
   Pinto::Constants:
     file: lib/Pinto/Constants.pm
-    version: 0.035
-  Pinto::Interface::Action::Add:
-    file: lib/Pinto/Interface/Action/Add.pm
-    version: 0.035
-  Pinto::Interface::Action::Clean:
-    file: lib/Pinto/Interface/Action/Clean.pm
-    version: 0.035
-  Pinto::Interface::Action::Import:
-    file: lib/Pinto/Interface/Action/Import.pm
-    version: 0.035
-  Pinto::Interface::Action::List:
-    file: lib/Pinto/Interface/Action/List.pm
-    version: 0.035
-  Pinto::Interface::Action::Mirror:
-    file: lib/Pinto/Interface/Action/Mirror.pm
-    version: 0.035
-  Pinto::Interface::Action::Nop:
-    file: lib/Pinto/Interface/Action/Nop.pm
-    version: 0.035
-  Pinto::Interface::Action::Pin:
-    file: lib/Pinto/Interface/Action/Pin.pm
-    version: 0.035
-  Pinto::Interface::Action::Purge:
-    file: lib/Pinto/Interface/Action/Purge.pm
-    version: 0.035
-  Pinto::Interface::Action::Rebuild:
-    file: lib/Pinto/Interface/Action/Rebuild.pm
-    version: 0.035
-  Pinto::Interface::Action::Remove:
-    file: lib/Pinto/Interface/Action/Remove.pm
-    version: 0.035
-  Pinto::Interface::Action::Statistics:
-    file: lib/Pinto/Interface/Action/Statistics.pm
-    version: 0.035
-  Pinto::Interface::Action::Unpin:
-    file: lib/Pinto/Interface/Action/Unpin.pm
-    version: 0.035
-  Pinto::Interface::Action::Verify:
-    file: lib/Pinto/Interface/Action/Verify.pm
-    version: 0.035
+    version: 0.036
   Pinto::Meta::Attribute::Trait::Postable:
     file: lib/Pinto/Meta/Attribute/Trait/Postable.pm
-    version: 0.035
+    version: 0.036
+  Pinto::Role::Attribute::archive:
+    file: lib/Pinto/Role/Attribute/archive.pm
+    version: 0.036
+  Pinto::Role::Attribute::author:
+    file: lib/Pinto/Role/Attribute/author.pm
+    version: 0.036
+  Pinto::Role::Attribute::format:
+    file: lib/Pinto/Role/Attribute/format.pm
+    version: 0.036
+  Pinto::Role::Attribute::norecurse:
+    file: lib/Pinto/Role/Attribute/norecurse.pm
+    version: 0.036
+  Pinto::Role::Attribute::out:
+    file: lib/Pinto/Role/Attribute/out.pm
+    version: 0.036
+  Pinto::Role::Attribute::package:
+    file: lib/Pinto/Role/Attribute/package.pm
+    version: 0.036
+  Pinto::Role::Attribute::path:
+    file: lib/Pinto/Role/Attribute/path.pm
+    version: 0.036
+  Pinto::Role::Attribute::pausecfg:
+    file: lib/Pinto/Role/Attribute/pausecfg.pm
+    version: 0.036
+  Pinto::Role::Attribute::username:
+    file: lib/Pinto/Role/Attribute/username.pm
+    version: 0.036
+  Pinto::Role::Attribute::version:
+    file: lib/Pinto/Role/Attribute/version.pm
+    version: 0.036
+  Pinto::Role::Interface::Action:
+    file: lib/Pinto/Role/Interface/Action.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::Add:
+    file: lib/Pinto/Role/Interface/Action/Add.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::Clean:
+    file: lib/Pinto/Role/Interface/Action/Clean.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::Import:
+    file: lib/Pinto/Role/Interface/Action/Import.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::List:
+    file: lib/Pinto/Role/Interface/Action/List.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::Mirror:
+    file: lib/Pinto/Role/Interface/Action/Mirror.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::Nop:
+    file: lib/Pinto/Role/Interface/Action/Nop.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::Pin:
+    file: lib/Pinto/Role/Interface/Action/Pin.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::Purge:
+    file: lib/Pinto/Role/Interface/Action/Purge.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::Rebuild:
+    file: lib/Pinto/Role/Interface/Action/Rebuild.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::Remove:
+    file: lib/Pinto/Role/Interface/Action/Remove.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::Statistics:
+    file: lib/Pinto/Role/Interface/Action/Statistics.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::Unpin:
+    file: lib/Pinto/Role/Interface/Action/Unpin.pm
+    version: 0.036
+  Pinto::Role::Interface::Action::Verify:
+    file: lib/Pinto/Role/Interface/Action/Verify.pm
+    version: 0.036
   Pinto::Types:
     file: lib/Pinto/Types.pm
-    version: 0.035
+    version: 0.036
 requires:
   Carp: 0
   Exporter: 0
@@ -131,4 +134,4 @@ requires:
 resources:
   bugtracker: https://github.com/thaljef/Pinto-Common/issues
   repository: git://github.com/thaljef/Pinto-Common.git
-version: 0.035
+version: 0.036

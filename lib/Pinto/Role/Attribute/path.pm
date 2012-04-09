@@ -1,28 +1,29 @@
-# ABSTRACT: Interface for Action::Nop;
+# ABSTRACT: Something that has a distribution path attribute
 
-package Pinto::Interface::Action::Nop;
+package Pinto::Role::Attribute::path;
 
 use Moose::Role;
 
-use MooseX::Types::Moose qw(Int);
+use MooseX::Types::Moose qw( Str );
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
 with qw( Pinto::Meta::Attribute::Trait::Postable );
 
 #------------------------------------------------------------------------------
+# Attributes
 
-has sleep => (
-    is      => 'ro',
-    isa     => Int,
-    default => 0,
-    traits  => [ qw(Postable) ],
+has path  => (
+    is       => 'ro',
+    isa      => Str,
+    required => 1,
+    traits   => [ qw(Postable) ],
 );
 
 #------------------------------------------------------------------------------
@@ -37,11 +38,11 @@ has sleep => (
 
 =head1 NAME
 
-Pinto::Interface::Action::Nop - Interface for Action::Nop;
+Pinto::Role::Attribute::path - Something that has a distribution path attribute
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

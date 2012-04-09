@@ -1,6 +1,6 @@
 # ABSTRACT: Something that has an author id attribute
 
-package Pinto::Attribute::author;
+package Pinto::Role::Attribute::author;
 
 use Moose::Role;
 
@@ -10,12 +10,12 @@ use Pinto::Types qw(AuthorID);
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Attribute::pausecfg
-         Pinto::Attribute::username
+with qw( Pinto::Role::Attribute::pausecfg
+         Pinto::Role::Attribute::username
          Pinto::Meta::Attribute::Trait::Postable );
 
 #------------------------------------------------------------------------------
@@ -53,11 +53,11 @@ sub _build_author {
 
 =head1 NAME
 
-Pinto::Attribute::author - Something that has an author id attribute
+Pinto::Role::Attribute::author - Something that has an author id attribute
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

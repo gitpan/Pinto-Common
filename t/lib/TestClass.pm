@@ -1,7 +1,7 @@
 package TestClass;
 
 use Moose;
-use Pinto::Types qw(File Dir Uri IO AuthorID StackName Vers);
+use Pinto::Types qw(File Dir Uri IO AuthorID StackName Vers LogLevel);
 
 #-----------------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
-# ABSTRACT: Interface for Action::Verify
+# ABSTRACT: Base interface for all Actions
 
-package Pinto::Interface::Action::Verify;
+package Pinto::Role::Interface::Action;
 
 use Moose::Role;
 
@@ -8,11 +8,11 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Attribute::out );
+requires qw(execute);
 
 #------------------------------------------------------------------------------
 
@@ -26,11 +26,11 @@ with qw( Pinto::Attribute::out );
 
 =head1 NAME
 
-Pinto::Interface::Action::Verify - Interface for Action::Verify
+Pinto::Role::Interface::Action - Base interface for all Actions
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

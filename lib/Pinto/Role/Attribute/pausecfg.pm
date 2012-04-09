@@ -1,6 +1,6 @@
 # ABSTRACT: Something that has a pause config attribute
 
-package Pinto::Attribute::pausecfg;
+package Pinto::Role::Attribute::pausecfg;
 
 use Moose::Role;
 
@@ -12,7 +12,7 @@ use File::HomeDir;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -79,11 +79,11 @@ sub _build_pausecfg {
 
 =head1 NAME
 
-Pinto::Attribute::pausecfg - Something that has a pause config attribute
+Pinto::Role::Attribute::pausecfg - Something that has a pause config attribute
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 ATTRIBUTES
 

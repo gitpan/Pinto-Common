@@ -1,14 +1,26 @@
-# ABSTRACT: Interface for Action::Purge
+# ABSTRACT: Something that has an output handle attribute
 
-package Pinto::Interface::Action::Purge;
+package Pinto::Role::Attribute::out;
 
 use Moose::Role;
+
+use Pinto::Types qw(IO);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
+
+#------------------------------------------------------------------------------
+# Attributes
+
+has out => (
+    is      => 'ro',
+    isa     => IO,
+    coerce  => 1,
+    default => sub { [fileno(STDOUT), '>'] },
+);
 
 #------------------------------------------------------------------------------
 
@@ -22,11 +34,11 @@ our $VERSION = '0.035'; # VERSION
 
 =head1 NAME
 
-Pinto::Interface::Action::Purge - Interface for Action::Purge
+Pinto::Role::Attribute::out - Something that has an output handle attribute
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

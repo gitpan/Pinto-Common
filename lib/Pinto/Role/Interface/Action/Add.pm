@@ -1,31 +1,24 @@
-# ABSTRACT: Interface for Action::Rebuild
+# ABSTRACT: Interface for Action::Add
 
-package Pinto::Interface::Action::Rebuild;
+package Pinto::Role::Interface::Action::Add;
 
 use Moose::Role;
-
-use MooseX::Types::Moose qw(Bool);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Meta::Attribute::Trait::Postable );
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::author
+         Pinto::Role::Attribute::archive
+         Pinto::Role::Attribute::norecurse );
 
 #------------------------------------------------------------------------------
 
-has recompute => (
-    is      => 'ro',
-    isa     => Bool,
-    default => 0,
-    traits  => [ qw(Postable) ],
-);
-
-#------------------------------------------------------------------------------
 1;
 
 
@@ -36,11 +29,11 @@ has recompute => (
 
 =head1 NAME
 
-Pinto::Interface::Action::Rebuild - Interface for Action::Rebuild
+Pinto::Role::Interface::Action::Add - Interface for Action::Add
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

@@ -1,26 +1,21 @@
-# ABSTRACT: Something that has an output handle attribute
+# ABSTRACT: Interface for Action::Import
 
-package Pinto::Attribute::out;
+package Pinto::Role::Interface::Action::Import;
 
 use Moose::Role;
-
-use Pinto::Types qw(IO);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
-# Attributes
 
-has out => (
-    is      => 'ro',
-    isa     => IO,
-    coerce  => 1,
-    default => sub { [fileno(STDOUT), '>'] },
-);
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::package
+         Pinto::Role::Attribute::version
+         Pinto::Role::Attribute::norecurse );
 
 #------------------------------------------------------------------------------
 
@@ -34,11 +29,11 @@ has out => (
 
 =head1 NAME
 
-Pinto::Attribute::out - Something that has an output handle attribute
+Pinto::Role::Interface::Action::Import - Interface for Action::Import
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

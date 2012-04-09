@@ -1,19 +1,29 @@
-# ABSTRACT: Interface for Action::Remove
+# ABSTRACT: Something that has a norecurse attribute
 
-package Pinto::Interface::Action::Remove;
+package Pinto::Role::Attribute::norecurse;
 
 use Moose::Role;
+
+use MooseX::Types::Moose qw(Bool);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Attribute::path
-         Pinto::Attribute::author );
+with qw( Pinto::Meta::Attribute::Trait::Postable );
+
+#------------------------------------------------------------------------------
+
+has norecurse => (
+    is        => 'ro',
+    isa       => Bool,
+    default   => 0,
+    traits    => [ qw(Postable) ],
+);
 
 #------------------------------------------------------------------------------
 
@@ -27,11 +37,11 @@ with qw( Pinto::Attribute::path
 
 =head1 NAME
 
-Pinto::Interface::Action::Remove - Interface for Action::Remove
+Pinto::Role::Attribute::norecurse - Something that has a norecurse attribute
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

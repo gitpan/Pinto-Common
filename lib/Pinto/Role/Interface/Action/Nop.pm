@@ -1,31 +1,29 @@
-# ABSTRACT: Something that has a distribution archive attribute
+# ABSTRACT: Interface for Action::Nop;
 
-package Pinto::Attribute::archive;
+package Pinto::Role::Interface::Action::Nop;
 
 use Moose::Role;
 
-use Pinto::Types qw( File );
+use MooseX::Types::Moose qw(Int);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Meta::Attribute::Trait::Postable );
+with qw( Pinto::Role::Interface::Action
+         Pinto::Meta::Attribute::Trait::Postable );
 
 #------------------------------------------------------------------------------
-# Attributes
 
-has archive  => (
-    is       => 'ro',
-    isa      => File,
-    coerce   => 1,
-    required => 1,
-    traits   => [ qw(Postable) ],
-    post_via => sub { [ $_[0]->archive->stringify ] },
+has sleep => (
+    is      => 'ro',
+    isa     => Int,
+    default => 0,
+    traits  => [ qw(Postable) ],
 );
 
 #------------------------------------------------------------------------------
@@ -40,11 +38,11 @@ has archive  => (
 
 =head1 NAME
 
-Pinto::Attribute::archive - Something that has a distribution archive attribute
+Pinto::Role::Interface::Action::Nop - Interface for Action::Nop;
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

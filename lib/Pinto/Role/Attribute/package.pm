@@ -1,18 +1,29 @@
-# ABSTRACT: Interface for Action::Statistics
+# ABSTRACT: Something that has a package attribute
 
-package Pinto::Interface::Action::Statistics;
+package Pinto::Role::Attribute::package;
 
 use Moose::Role;
+
+use MooseX::Types::Moose qw(Str);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+with qw( Pinto::Meta::Attribute::Trait::Postable );
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Attribute::out );
+our $VERSION = '0.036'; # VERSION
+
+#------------------------------------------------------------------------------
+
+has package => (
+    is       => 'ro',
+    isa      => Str,
+    required => 1,
+    traits   => [ qw(Postable) ],
+);
 
 #------------------------------------------------------------------------------
 
@@ -26,11 +37,11 @@ with qw( Pinto::Attribute::out );
 
 =head1 NAME
 
-Pinto::Interface::Action::Statistics - Interface for Action::Statistics
+Pinto::Role::Attribute::package - Something that has a package attribute
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

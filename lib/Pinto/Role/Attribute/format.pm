@@ -1,6 +1,6 @@
 # ABSTRACT: Something that has a format attribute
 
-package Pinto::Attribute::format;
+package Pinto::Role::Attribute::format;
 
 use Moose::Role;
 
@@ -10,7 +10,7 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -38,11 +38,11 @@ has format   => (
 
 =head1 NAME
 
-Pinto::Attribute::format - Something that has a format attribute
+Pinto::Role::Attribute::format - Something that has a format attribute
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

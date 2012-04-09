@@ -1,32 +1,20 @@
-# ABSTRACT: Something that has a norecurse attribute
+# ABSTRACT: Interface for Action::Purge
 
-package Pinto::Attribute::norecurse;
+package Pinto::Role::Interface::Action::Purge;
 
 use Moose::Role;
-
-use MooseX::Types::Moose qw(Bool);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Meta::Attribute::Trait::Postable );
+with qw( Pinto::Role::Interface::Action );
 
 #------------------------------------------------------------------------------
-
-has norecurse => (
-    is        => 'ro',
-    isa       => Bool,
-    default   => 0,
-    traits    => [ qw(Postable) ],
-);
-
-#------------------------------------------------------------------------------
-
 1;
 
 
@@ -37,11 +25,11 @@ has norecurse => (
 
 =head1 NAME
 
-Pinto::Attribute::norecurse - Something that has a norecurse attribute
+Pinto::Role::Interface::Action::Purge - Interface for Action::Purge
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

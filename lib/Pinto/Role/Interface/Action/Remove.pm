@@ -1,31 +1,20 @@
-# ABSTRACT: Something that has a version attribute
+# ABSTRACT: Interface for Action::Remove
 
-package Pinto::Attribute::version;
+package Pinto::Role::Interface::Action::Remove;
 
 use Moose::Role;
-
-use Pinto::Types qw(Vers);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Meta::Attribute::Trait::Postable );
-
-#------------------------------------------------------------------------------
-
-has version => (
-    is        => 'ro',
-    isa       => Vers,
-    coerce    => 1,
-    predicate => 'has_version',
-    traits    => [ qw(Postable) ],
-    post_via  => sub { $_[0]->version->stringify },
-);
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::path
+         Pinto::Role::Attribute::author );
 
 #------------------------------------------------------------------------------
 
@@ -39,11 +28,11 @@ has version => (
 
 =head1 NAME
 
-Pinto::Attribute::version - Something that has a version attribute
+Pinto::Role::Interface::Action::Remove - Interface for Action::Remove
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

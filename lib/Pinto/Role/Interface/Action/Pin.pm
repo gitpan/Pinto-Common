@@ -1,30 +1,20 @@
-# ABSTRACT: Something that has a distribution path attribute
+# ABSTRACT: Interface for Action::Pin
 
-package Pinto::Attribute::path;
+package Pinto::Role::Interface::Action::Pin;
 
 use Moose::Role;
-
-use MooseX::Types::Moose qw( Str );
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Meta::Attribute::Trait::Postable );
-
-#------------------------------------------------------------------------------
-# Attributes
-
-has path  => (
-    is       => 'ro',
-    isa      => Str,
-    required => 1,
-    traits   => [ qw(Postable) ],
-);
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::package
+         Pinto::Role::Attribute::version );
 
 #------------------------------------------------------------------------------
 
@@ -38,11 +28,11 @@ has path  => (
 
 =head1 NAME
 
-Pinto::Attribute::path - Something that has a distribution path attribute
+Pinto::Role::Interface::Action::Pin - Interface for Action::Pin
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

@@ -1,28 +1,31 @@
-# ABSTRACT: Something that has a package attribute
+# ABSTRACT: Something that has a distribution archive attribute
 
-package Pinto::Attribute::package;
+package Pinto::Role::Attribute::archive;
 
 use Moose::Role;
 
-use MooseX::Types::Moose qw(Str);
+use Pinto::Types qw( File );
 
 use namespace::autoclean;
+
+#------------------------------------------------------------------------------
+
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
 with qw( Pinto::Meta::Attribute::Trait::Postable );
 
 #------------------------------------------------------------------------------
+# Attributes
 
-our $VERSION = '0.035'; # VERSION
-
-#------------------------------------------------------------------------------
-
-has package => (
+has archive  => (
     is       => 'ro',
-    isa      => Str,
+    isa      => File,
+    coerce   => 1,
     required => 1,
     traits   => [ qw(Postable) ],
+    post_via => sub { [ $_[0]->archive->stringify ] },
 );
 
 #------------------------------------------------------------------------------
@@ -37,11 +40,11 @@ has package => (
 
 =head1 NAME
 
-Pinto::Attribute::package - Something that has a package attribute
+Pinto::Role::Attribute::archive - Something that has a distribution archive attribute
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

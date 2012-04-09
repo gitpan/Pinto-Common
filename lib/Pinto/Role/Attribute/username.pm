@@ -1,6 +1,6 @@
 # ABSTRACT: Something that has a username attribute
 
-package Pinto::Attribute::username;
+package Pinto::Role::Attribute::username;
 
 use Moose::Role;
 
@@ -10,7 +10,7 @@ use Carp;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -57,11 +57,11 @@ sub _build_username {
 
 =head1 NAME
 
-Pinto::Attribute::username - Something that has a username attribute
+Pinto::Role::Attribute::username - Something that has a username attribute
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

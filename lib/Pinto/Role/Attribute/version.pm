@@ -1,20 +1,31 @@
-# ABSTRACT: Interface for Action::Import
+# ABSTRACT: Something that has a version attribute
 
-package Pinto::Interface::Action::Import;
+package Pinto::Role::Attribute::version;
 
 use Moose::Role;
+
+use Pinto::Types qw(Vers);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Attribute::package
-         Pinto::Attribute::version
-         Pinto::Attribute::norecurse );
+with qw( Pinto::Meta::Attribute::Trait::Postable );
+
+#------------------------------------------------------------------------------
+
+has version => (
+    is        => 'ro',
+    isa       => Vers,
+    coerce    => 1,
+    predicate => 'has_version',
+    traits    => [ qw(Postable) ],
+    post_via  => sub { $_[0]->version->stringify },
+);
 
 #------------------------------------------------------------------------------
 
@@ -28,11 +39,11 @@ with qw( Pinto::Attribute::package
 
 =head1 NAME
 
-Pinto::Interface::Action::Import - Interface for Action::Import
+Pinto::Role::Attribute::version - Something that has a version attribute
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

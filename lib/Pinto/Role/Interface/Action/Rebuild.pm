@@ -1,68 +1,32 @@
-# ABSTRACT: Interface for Action::List
+# ABSTRACT: Interface for Action::Rebuild
 
-package Pinto::Interface::Action::List;
+package Pinto::Role::Interface::Action::Rebuild;
 
 use Moose::Role;
 
-use MooseX::Types::Moose qw(Maybe Str Bool HashRef);
+use MooseX::Types::Moose qw(Bool);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Attribute::out
+with qw( Pinto::Role::Interface::Action
          Pinto::Meta::Attribute::Trait::Postable );
 
 #------------------------------------------------------------------------------
 
-has format => (
+has recompute => (
     is      => 'ro',
-    isa     => Str,
+    isa     => Bool,
+    default => 0,
     traits  => [ qw(Postable) ],
 );
 
-
-has pinned => (
-    is     => 'ro',
-    isa    => Bool,
-    traits => [ qw(Postable) ],
-);
-
-
-has index => (
-    is     => 'ro',
-    isa    => Str,
-    traits => [ qw(Postable) ],
-);
-
-
-has packages => (
-    is     => 'ro',
-    isa    => Str,
-    traits => [ qw(Postable) ],
-);
-
-
-has distributions => (
-    is     => 'ro',
-    isa    => Str,
-    traits => [ qw(Postable) ],
-);
-
-
-has where => (
-    is      => 'ro',
-    isa     => HashRef,
-    builder => '_build_where',
-    lazy    => 1,
-);
-
 #------------------------------------------------------------------------------
-
 1;
 
 
@@ -73,11 +37,11 @@ has where => (
 
 =head1 NAME
 
-Pinto::Interface::Action::List - Interface for Action::List
+Pinto::Role::Interface::Action::Rebuild - Interface for Action::Rebuild
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

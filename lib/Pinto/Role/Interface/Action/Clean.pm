@@ -1,6 +1,6 @@
-# ABSTRACT: Interface for Action::Add
+# ABSTRACT: Interface for Action::Clean
 
-package Pinto::Interface::Action::Add;
+package Pinto::Role::Interface::Action::Clean;
 
 use Moose::Role;
 
@@ -8,16 +8,13 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Attribute::author
-         Pinto::Attribute::archive
-         Pinto::Attribute::norecurse );
+with qw( Pinto::Role::Interface::Action );
 
 #------------------------------------------------------------------------------
-
 1;
 
 
@@ -28,11 +25,11 @@ with qw( Pinto::Attribute::author
 
 =head1 NAME
 
-Pinto::Interface::Action::Add - Interface for Action::Add
+Pinto::Role::Interface::Action::Clean - Interface for Action::Clean
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 

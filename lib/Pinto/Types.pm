@@ -5,7 +5,7 @@ package Pinto::Types;
 use strict;
 use warnings;
 
-use MooseX::Types -declare => [ qw( AuthorID StackName Uri Dir File IO Vers) ];
+use MooseX::Types -declare => [ qw( AuthorID StackName Uri Dir File IO Vers LogLevel) ];
 use MooseX::Types::Moose qw( Str Num ScalarRef ArrayRef FileHandle Object Int);
 
 use URI;
@@ -21,14 +21,14 @@ use namespace::autoclean;
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = '0.035'; # VERSION
+our $VERSION = '0.036'; # VERSION
 
 #-----------------------------------------------------------------------------
 
 subtype AuthorID,
     as Str,
     where { not m/[^A-Z0-9-]/x },
-    message { "The author ($_) must be alphanumeric" };
+    message { "The author id ($_) must be alphanumeric" };
 
 coerce AuthorID,
     from Str,
@@ -115,7 +115,7 @@ Pinto::Types - Moose types used within Pinto
 
 =head1 VERSION
 
-version 0.035
+version 0.036
 
 =head1 AUTHOR
 
