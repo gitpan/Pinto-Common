@@ -9,8 +9,10 @@ README
 dist.ini
 lib/Pinto/Common.pm
 lib/Pinto/Constants.pm
+lib/Pinto/DistributionSpec.pm
 lib/Pinto/Manual.pod
 lib/Pinto/Meta/Attribute/Trait/Postable.pm
+lib/Pinto/PackageSpec.pm
 lib/Pinto/Role/Attribute/archive.pm
 lib/Pinto/Role/Attribute/author.pm
 lib/Pinto/Role/Attribute/format.pm
@@ -19,6 +21,7 @@ lib/Pinto/Role/Attribute/out.pm
 lib/Pinto/Role/Attribute/package.pm
 lib/Pinto/Role/Attribute/path.pm
 lib/Pinto/Role/Attribute/pausecfg.pm
+lib/Pinto/Role/Attribute/target.pm
 lib/Pinto/Role/Attribute/username.pm
 lib/Pinto/Role/Attribute/version.pm
 lib/Pinto/Role/Interface/Action.pm
@@ -41,6 +44,8 @@ t/00-compile.t
 t/01-types.t
 t/02-authorable.t
 t/03-postable.t
+t/04-package_spec.t
+t/05-dist_spec.t
 t/lib/TestClass.pm
 weaver.ini
 xt/author/critic.t

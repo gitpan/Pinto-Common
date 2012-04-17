@@ -40,6 +40,7 @@
             "IO::File" : "0",
             "IO::Handle" : "0",
             "IO::String" : "0",
+            "Moose" : "0",
             "Moose::Role" : "0",
             "MooseX::Types" : "0",
             "MooseX::Types::Moose" : "0",
@@ -50,6 +51,7 @@
             "URI" : "0",
             "base" : "0",
             "namespace::autoclean" : "0",
+            "overload" : "0",
             "perl" : "5.008",
             "strict" : "0",
             "version" : "0",
@@ -61,7 +63,6 @@
             "File::Find" : "0",
             "File::Temp" : "0",
             "FindBin" : "0",
-            "Moose" : "0",
             "Test::Exception" : "0",
             "Test::More" : "0"
          }
@@ -70,115 +71,127 @@
    "provides" : {
       "Pinto::Common" : {
          "file" : "lib/Pinto/Common.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Constants" : {
          "file" : "lib/Pinto/Constants.pm",
-         "version" : "0.036"
+         "version" : "0.037"
+      },
+      "Pinto::DistributionSpec" : {
+         "file" : "lib/Pinto/DistributionSpec.pm",
+         "version" : "0.037"
       },
       "Pinto::Meta::Attribute::Trait::Postable" : {
          "file" : "lib/Pinto/Meta/Attribute/Trait/Postable.pm",
-         "version" : "0.036"
+         "version" : "0.037"
+      },
+      "Pinto::PackageSpec" : {
+         "file" : "lib/Pinto/PackageSpec.pm",
+         "version" : "0.037"
       },
       "Pinto::Role::Attribute::archive" : {
          "file" : "lib/Pinto/Role/Attribute/archive.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Attribute::author" : {
          "file" : "lib/Pinto/Role/Attribute/author.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Attribute::format" : {
          "file" : "lib/Pinto/Role/Attribute/format.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Attribute::norecurse" : {
          "file" : "lib/Pinto/Role/Attribute/norecurse.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Attribute::out" : {
          "file" : "lib/Pinto/Role/Attribute/out.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Attribute::package" : {
          "file" : "lib/Pinto/Role/Attribute/package.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Attribute::path" : {
          "file" : "lib/Pinto/Role/Attribute/path.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Attribute::pausecfg" : {
          "file" : "lib/Pinto/Role/Attribute/pausecfg.pm",
-         "version" : "0.036"
+         "version" : "0.037"
+      },
+      "Pinto::Role::Attribute::target" : {
+         "file" : "lib/Pinto/Role/Attribute/target.pm",
+         "version" : "0.037"
       },
       "Pinto::Role::Attribute::username" : {
          "file" : "lib/Pinto/Role/Attribute/username.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Attribute::version" : {
          "file" : "lib/Pinto/Role/Attribute/version.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action" : {
          "file" : "lib/Pinto/Role/Interface/Action.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::Add" : {
          "file" : "lib/Pinto/Role/Interface/Action/Add.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::Clean" : {
          "file" : "lib/Pinto/Role/Interface/Action/Clean.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::Import" : {
          "file" : "lib/Pinto/Role/Interface/Action/Import.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::List" : {
          "file" : "lib/Pinto/Role/Interface/Action/List.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::Mirror" : {
          "file" : "lib/Pinto/Role/Interface/Action/Mirror.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::Nop" : {
          "file" : "lib/Pinto/Role/Interface/Action/Nop.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::Pin" : {
          "file" : "lib/Pinto/Role/Interface/Action/Pin.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::Purge" : {
          "file" : "lib/Pinto/Role/Interface/Action/Purge.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::Rebuild" : {
          "file" : "lib/Pinto/Role/Interface/Action/Rebuild.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::Remove" : {
          "file" : "lib/Pinto/Role/Interface/Action/Remove.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::Statistics" : {
          "file" : "lib/Pinto/Role/Interface/Action/Statistics.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::Unpin" : {
          "file" : "lib/Pinto/Role/Interface/Action/Unpin.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Role::Interface::Action::Verify" : {
          "file" : "lib/Pinto/Role/Interface/Action/Verify.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       },
       "Pinto::Types" : {
          "file" : "lib/Pinto/Types.pm",
-         "version" : "0.036"
+         "version" : "0.037"
       }
    },
    "release_status" : "stable",
@@ -192,6 +205,6 @@
          "web" : "https://github.com/thaljef/Pinto-Common"
       }
    },
-   "version" : "0.036"
+   "version" : "0.037"
 }
 

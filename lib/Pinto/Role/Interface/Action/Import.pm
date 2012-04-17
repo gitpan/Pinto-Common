@@ -8,13 +8,12 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.036'; # VERSION
+our $VERSION = '0.037'; # VERSION
 
 #------------------------------------------------------------------------------
 
 with qw( Pinto::Role::Interface::Action
-         Pinto::Role::Attribute::package
-         Pinto::Role::Attribute::version
+         Pinto::Role::Attribute::target
          Pinto::Role::Attribute::norecurse );
 
 #------------------------------------------------------------------------------
@@ -33,7 +32,7 @@ Pinto::Role::Interface::Action::Import - Interface for Action::Import
 
 =head1 VERSION
 
-version 0.036
+version 0.037
 
 =head1 AUTHOR
 

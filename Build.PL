@@ -11,7 +11,6 @@ my %module_build_args = (
     "File::Temp" => 0,
     "FindBin" => 0,
     "Module::Build" => "0.3601",
-    "Moose" => 0,
     "Test::Exception" => 0,
     "Test::More" => 0
   },
@@ -23,7 +22,7 @@ my %module_build_args = (
     "Jeffrey Ryan Thalhammer <jeff\@imaginative-software.com>"
   ],
   "dist_name" => "Pinto-Common",
-  "dist_version" => "0.036",
+  "dist_version" => "0.037",
   "license" => "perl",
   "module_name" => "Pinto::Common",
   "recommends" => {},
@@ -35,6 +34,7 @@ my %module_build_args = (
     "IO::File" => 0,
     "IO::Handle" => 0,
     "IO::String" => 0,
+    "Moose" => 0,
     "Moose::Role" => 0,
     "MooseX::Types" => 0,
     "MooseX::Types::Moose" => 0,
@@ -45,6 +45,7 @@ my %module_build_args = (
     "URI" => 0,
     "base" => 0,
     "namespace::autoclean" => 0,
+    "overload" => 0,
     "perl" => "5.008",
     "strict" => 0,
     "version" => 0,
