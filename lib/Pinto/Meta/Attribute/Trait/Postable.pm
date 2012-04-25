@@ -9,7 +9,7 @@ use namespace::autoclean;
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = '0.037'; # VERSION
+our $VERSION = '0.038'; # VERSION
 
 #-----------------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ Pinto::Meta::Attribute::Trait::Postable - Trait for marking attributes as someth
 
 =head1 VERSION
 
-version 0.037
+version 0.038
 
 =head1 ATTRIBUTES
 

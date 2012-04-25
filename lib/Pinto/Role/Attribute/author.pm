@@ -10,7 +10,7 @@ use Pinto::Types qw(AuthorID);
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.037'; # VERSION
+our $VERSION = '0.038'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ Pinto::Role::Attribute::author - Something that has an author id attribute
 
 =head1 VERSION
 
-version 0.037
+version 0.038
 
 =head1 AUTHOR
 

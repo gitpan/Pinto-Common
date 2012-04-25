@@ -10,7 +10,7 @@ use Carp;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.037'; # VERSION
+our $VERSION = '0.038'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ Pinto::Role::Attribute::username - Something that has a username attribute
 
 =head1 VERSION
 
-version 0.037
+version 0.038
 
 =head1 AUTHOR
 

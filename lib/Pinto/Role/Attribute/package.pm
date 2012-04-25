@@ -14,7 +14,7 @@ with qw( Pinto::Meta::Attribute::Trait::Postable );
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.037'; # VERSION
+our $VERSION = '0.038'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ Pinto::Role::Attribute::package - Something that has a package attribute
 
 =head1 VERSION
 
-version 0.037
+version 0.038
 
 =head1 AUTHOR
 
