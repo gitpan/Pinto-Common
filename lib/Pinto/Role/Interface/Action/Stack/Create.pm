@@ -1,23 +1,30 @@
-# ABSTRACT: Interface for Action::Import
+# ABSTRACT: Interface for Action::Stack::Create
 
-package Pinto::Role::Interface::Action::Import;
+package Pinto::Role::Interface::Action::Stack::Create;
 
 use Moose::Role;
+use MooseX::Types::Moose qw(Str);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
 with qw( Pinto::Role::Interface::Action
-         Pinto::Role::Attribute::target
-         Pinto::Role::Attribute::norecurse );
+         Pinto::Role::Attribute::description );
 
 #------------------------------------------------------------------------------
 
+has stack => (
+    is       => 'ro',
+    isa      => Str,
+    required => 1,
+);
+
+#------------------------------------------------------------------------------
 1;
 
 
@@ -28,11 +35,11 @@ with qw( Pinto::Role::Interface::Action
 
 =head1 NAME
 
-Pinto::Role::Interface::Action::Import - Interface for Action::Import
+Pinto::Role::Interface::Action::Stack::Create - Interface for Action::Stack::Create
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

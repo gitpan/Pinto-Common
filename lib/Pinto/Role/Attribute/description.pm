@@ -1,23 +1,25 @@
-# ABSTRACT: Interface for Action::Remove
+# ABSTRACT: Something that has a description attribute
 
-package Pinto::Role::Interface::Action::Remove;
+package Pinto::Role::Attribute::description;
 
 use Moose::Role;
+use MooseX::Types::Moose qw(Str);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Role::Interface::Action
-         Pinto::Role::Attribute::path
-         Pinto::Role::Attribute::author );
+has description => (
+    is         => 'ro',
+    isa        => Str,
+    predicate  => 'has_description',
+);
 
 #------------------------------------------------------------------------------
-
 1;
 
 
@@ -28,11 +30,11 @@ with qw( Pinto::Role::Interface::Action
 
 =head1 NAME
 
-Pinto::Role::Interface::Action::Remove - Interface for Action::Remove
+Pinto::Role::Attribute::description - Something that has a description attribute
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 
@@ -49,3 +51,4 @@ the same terms as the Perl 5 programming language system itself.
 
 
 __END__
+

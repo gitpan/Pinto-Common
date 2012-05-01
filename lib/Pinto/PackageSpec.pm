@@ -11,7 +11,7 @@ use overload ('""' => 'to_string');
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ Pinto::PackageSpec - Specifies a package by name and version
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 METHODS
 

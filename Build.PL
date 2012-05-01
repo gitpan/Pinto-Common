@@ -22,13 +22,14 @@ my %module_build_args = (
     "Jeffrey Ryan Thalhammer <jeff\@imaginative-software.com>"
   ],
   "dist_name" => "Pinto-Common",
-  "dist_version" => "0.038",
+  "dist_version" => "0.040_001",
   "license" => "perl",
   "module_name" => "Pinto::Common",
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
     "Carp" => 0,
+    "Class::Load" => 0,
     "Exporter" => 0,
     "File::HomeDir" => 0,
     "IO::File" => 0,

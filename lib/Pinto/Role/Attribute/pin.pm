@@ -1,28 +1,22 @@
-# ABSTRACT: Something that has a package attribute
+# ABSTRACT: Something that has a pin attribute
 
-package Pinto::Role::Attribute::package;
+package Pinto::Role::Attribute::pin;
 
 use Moose::Role;
-
-use MooseX::Types::Moose qw(Str);
+use MooseX::Types::Moose qw(Bool);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Meta::Attribute::Trait::Postable );
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
-
-#------------------------------------------------------------------------------
-
-has package => (
-    is       => 'ro',
-    isa      => Str,
-    required => 1,
-    traits   => [ qw(Postable) ],
+has pin => (
+    is        => 'ro',
+    isa       => Bool,
+    default   => 0,
 );
 
 #------------------------------------------------------------------------------
@@ -37,11 +31,11 @@ has package => (
 
 =head1 NAME
 
-Pinto::Role::Attribute::package - Something that has a package attribute
+Pinto::Role::Attribute::pin - Something that has a pin attribute
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

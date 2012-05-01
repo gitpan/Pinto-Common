@@ -10,23 +10,21 @@ use Pinto::Types qw(AuthorID);
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
 with qw( Pinto::Role::Attribute::pausecfg
-         Pinto::Role::Attribute::username
-         Pinto::Meta::Attribute::Trait::Postable );
+         Pinto::Role::Attribute::username );
 
 #------------------------------------------------------------------------------
 
 has author => (
     is         => 'ro',
     isa        => AuthorID,
+    builder    => '_build_author',
     coerce     => 1,
     lazy       => 1,
-    builder    => '_build_author',
-    traits     => [ qw(Postable) ],
 );
 
 #------------------------------------------------------------------------------
@@ -57,7 +55,7 @@ Pinto::Role::Attribute::author - Something that has an author id attribute
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

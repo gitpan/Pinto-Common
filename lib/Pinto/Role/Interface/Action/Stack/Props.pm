@@ -1,30 +1,34 @@
-# ABSTRACT: Something that has a version attribute
+# ABSTRACT: Interface for Action::Stack::Props
 
-package Pinto::Role::Attribute::version;
+package Pinto::Role::Interface::Action::Stack::Props;
 
 use Moose::Role;
-
-use Pinto::Types qw(Vers);
+use MooseX::Types::Moose qw(Str);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Meta::Attribute::Trait::Postable );
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::out );
 
 #------------------------------------------------------------------------------
 
-has version => (
-    is        => 'ro',
-    isa       => Vers,
-    coerce    => 1,
-    predicate => 'has_version',
-    traits    => [ qw(Postable) ],
-    post_via  => sub { $_[0]->version->stringify },
+has stack  => (
+    is       => 'ro',
+    isa      => Str,
+    required => 1,
+);
+
+
+has format => (
+    is      => 'ro',
+    isa     => Str,
+    default => "%n = %v\n",
 );
 
 #------------------------------------------------------------------------------
@@ -39,11 +43,11 @@ has version => (
 
 =head1 NAME
 
-Pinto::Role::Attribute::version - Something that has a version attribute
+Pinto::Role::Interface::Action::Stack::Props - Interface for Action::Stack::Props
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

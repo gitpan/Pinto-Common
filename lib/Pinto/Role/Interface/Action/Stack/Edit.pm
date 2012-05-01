@@ -1,32 +1,42 @@
-# ABSTRACT: Something that has a distribution archive attribute
+# ABSTRACT: Interface for Action::Stack::Edit
 
-package Pinto::Role::Attribute::archive;
+package Pinto::Role::Interface::Action::Stack::Edit;
 
 use Moose::Role;
-
-use Pinto::Types qw( File );
+use MooseX::Types::Moose qw(Str HashRef Bool);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Meta::Attribute::Trait::Postable );
+with qw( Pinto::Role::Interface::Action );
 
 #------------------------------------------------------------------------------
-# Attributes
 
-has archive  => (
+has stack => (
     is       => 'ro',
-    isa      => File,
-    coerce   => 1,
+    isa      => Str,
     required => 1,
-    traits   => [ qw(Postable) ],
-    post_via => sub { [ $_[0]->archive->stringify ] },
 );
+
+
+has properties => (
+    is      => 'ro',
+    isa     => HashRef,
+    default => sub{ {} },
+);
+
+
+has master => (
+  is      => 'ro',
+  isa     => Bool,
+  default => 0,
+);
+
 
 #------------------------------------------------------------------------------
 
@@ -40,11 +50,11 @@ has archive  => (
 
 =head1 NAME
 
-Pinto::Role::Attribute::archive - Something that has a distribution archive attribute
+Pinto::Role::Interface::Action::Stack::Edit - Interface for Action::Stack::Edit
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

@@ -1,29 +1,34 @@
-# ABSTRACT: Something that has a format attribute
+# ABSTRACT: Interface for Action::Stack::Log
 
-package Pinto::Role::Attribute::format;
+package Pinto::Role::Interface::Action::Stack::Log;
 
 use Moose::Role;
-
-use MooseX::Types::Moose qw( Str );
+use MooseX::Types::Moose qw(Bool Int);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Meta::Attribute::Trait::Postable );
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::stack
+         Pinto::Role::Attribute::out );
 
 #------------------------------------------------------------------------------
-# Attributes
 
-has format   => (
-    is       => 'ro',
-    isa      => Str,
-    required => 1,
-    traits   => [ qw(Postable) ],
+has revision => (
+    is        => 'ro',
+    isa       => Int,
+    predicate => 'has_revision',
+);
+
+has detailed => (
+    is      => 'ro',
+    isa     => Bool,
+    default => 0,
 );
 
 #------------------------------------------------------------------------------
@@ -38,11 +43,11 @@ has format   => (
 
 =head1 NAME
 
-Pinto::Role::Attribute::format - Something that has a format attribute
+Pinto::Role::Interface::Action::Stack::Log - Interface for Action::Stack::Log
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

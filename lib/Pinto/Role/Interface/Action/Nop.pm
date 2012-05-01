@@ -10,12 +10,11 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Role::Interface::Action
-         Pinto::Meta::Attribute::Trait::Postable );
+with qw(Pinto::Role::Interface::Action);
 
 #------------------------------------------------------------------------------
 
@@ -23,7 +22,6 @@ has sleep => (
     is      => 'ro',
     isa     => Int,
     default => 0,
-    traits  => [ qw(Postable) ],
 );
 
 #------------------------------------------------------------------------------
@@ -42,7 +40,7 @@ Pinto::Role::Interface::Action::Nop - Interface for Action::Nop;
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

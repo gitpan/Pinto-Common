@@ -10,11 +10,7 @@ use Carp;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
-
-#------------------------------------------------------------------------------
-
-with qw( Pinto::Meta::Attribute::Trait::Postable );
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -23,7 +19,6 @@ has username => (
     isa        => Str,
     lazy       => 1,
     builder    => '_build_username',
-    traits     => [ qw(Postable) ],
 );
 
 #------------------------------------------------------------------------------
@@ -61,7 +56,7 @@ Pinto::Role::Attribute::username - Something that has a username attribute
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

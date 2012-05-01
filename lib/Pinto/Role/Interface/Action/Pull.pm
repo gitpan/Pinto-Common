@@ -1,6 +1,6 @@
-# ABSTRACT: Interface for Action::Clean
+# ABSTRACT: Interface for Action::Pull
 
-package Pinto::Role::Interface::Action::Clean;
+package Pinto::Role::Interface::Action::Pull;
 
 use Moose::Role;
 
@@ -8,13 +8,18 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Role::Interface::Action );
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::targets
+         Pinto::Role::Attribute::stack
+         Pinto::Role::Attribute::pin
+         Pinto::Role::Attribute::norecurse );
 
 #------------------------------------------------------------------------------
+
 1;
 
 
@@ -25,11 +30,11 @@ with qw( Pinto::Role::Interface::Action );
 
 =head1 NAME
 
-Pinto::Role::Interface::Action::Clean - Interface for Action::Clean
+Pinto::Role::Interface::Action::Pull - Interface for Action::Pull
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

@@ -1,10 +1,8 @@
-# ABSTRACT: Something that has a norecurse attribute
+# ABSTRACT: Interface for Action::Stack::Remove
 
-package Pinto::Role::Attribute::norecurse;
+package Pinto::Role::Interface::Action::Stack::Remove;
 
 use Moose::Role;
-
-use MooseX::Types::Moose qw(Bool);
 
 use namespace::autoclean;
 
@@ -14,14 +12,10 @@ our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-has norecurse => (
-    is        => 'ro',
-    isa       => Bool,
-    default   => 0,
-);
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::stack );
 
 #------------------------------------------------------------------------------
-
 1;
 
 
@@ -32,7 +26,7 @@ has norecurse => (
 
 =head1 NAME
 
-Pinto::Role::Attribute::norecurse - Something that has a norecurse attribute
+Pinto::Role::Interface::Action::Stack::Remove - Interface for Action::Stack::Remove
 
 =head1 VERSION
 

@@ -1,29 +1,34 @@
-# ABSTRACT: Something that has a distribution path attribute
+# ABSTRACT: Interface for Action::Stack::Create
 
-package Pinto::Role::Attribute::path;
+package Pinto::Role::Interface::Action::Stack::Copy;
 
 use Moose::Role;
-
-use MooseX::Types::Moose qw( Str );
+use MooseX::Types::Moose qw(Str);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Meta::Attribute::Trait::Postable );
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::description );
 
 #------------------------------------------------------------------------------
-# Attributes
 
-has path  => (
+has from_stack => (
     is       => 'ro',
     isa      => Str,
     required => 1,
-    traits   => [ qw(Postable) ],
+);
+
+
+has to_stack => (
+    is       => 'ro',
+    isa      => Str,
+    required => 1,
 );
 
 #------------------------------------------------------------------------------
@@ -38,11 +43,11 @@ has path  => (
 
 =head1 NAME
 
-Pinto::Role::Attribute::path - Something that has a distribution path attribute
+Pinto::Role::Interface::Action::Stack::Copy - Interface for Action::Stack::Create
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

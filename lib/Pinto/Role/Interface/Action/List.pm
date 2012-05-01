@@ -3,63 +3,44 @@
 package Pinto::Role::Interface::Action::List;
 
 use Moose::Role;
-
-use MooseX::Types::Moose qw(Maybe Str Bool HashRef);
+use MooseX::Types::Moose qw(Str Bool);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
 with qw( Pinto::Role::Interface::Action
          Pinto::Role::Attribute::out
-         Pinto::Meta::Attribute::Trait::Postable );
+         Pinto::Role::Attribute::stack );
 
 #------------------------------------------------------------------------------
 
 has format => (
     is      => 'ro',
     isa     => Str,
-    traits  => [ qw(Postable) ],
+    default => "%m%s%y %-40n %12v  %p\n",
 );
 
 
 has pinned => (
     is     => 'ro',
     isa    => Bool,
-    traits => [ qw(Postable) ],
-);
-
-
-has index => (
-    is     => 'ro',
-    isa    => Str,
-    traits => [ qw(Postable) ],
 );
 
 
 has packages => (
     is     => 'ro',
     isa    => Str,
-    traits => [ qw(Postable) ],
 );
 
 
 has distributions => (
     is     => 'ro',
     isa    => Str,
-    traits => [ qw(Postable) ],
-);
-
-
-has where => (
-    is      => 'ro',
-    isa     => HashRef,
-    builder => '_build_where',
-    lazy    => 1,
 );
 
 #------------------------------------------------------------------------------
@@ -78,7 +59,7 @@ Pinto::Role::Interface::Action::List - Interface for Action::List
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

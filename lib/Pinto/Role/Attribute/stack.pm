@@ -1,10 +1,9 @@
-# ABSTRACT: Something that has a norecurse attribute
+# ABSTRACT: Something that has a stack attribute
 
-package Pinto::Role::Attribute::norecurse;
+package Pinto::Role::Attribute::stack;
 
 use Moose::Role;
-
-use MooseX::Types::Moose qw(Bool);
+use MooseX::Types::Moose qw(Str);
 
 use namespace::autoclean;
 
@@ -14,10 +13,9 @@ our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-has norecurse => (
-    is        => 'ro',
-    isa       => Bool,
-    default   => 0,
+has stack => (
+    is       => 'ro',
+    isa      => Str,
 );
 
 #------------------------------------------------------------------------------
@@ -32,7 +30,7 @@ has norecurse => (
 
 =head1 NAME
 
-Pinto::Role::Attribute::norecurse - Something that has a norecurse attribute
+Pinto::Role::Attribute::stack - Something that has a stack attribute
 
 =head1 VERSION
 

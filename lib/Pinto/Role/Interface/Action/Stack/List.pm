@@ -1,20 +1,31 @@
-# ABSTRACT: Interface for Action::Mirror
+# ABSTRACT: Interface for Action::Stack::List
 
-package Pinto::Role::Interface::Action::Mirror;
+package Pinto::Role::Interface::Action::Stack::List;
 
 use Moose::Role;
+use MooseX::Types::Moose qw(Str);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Role::Interface::Action );
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::out );
 
 #------------------------------------------------------------------------------
+
+has format => (
+    is      => 'ro',
+    isa     => Str,
+    default => "%M %-16k %-16j %U\n",
+);
+
+#------------------------------------------------------------------------------
+
 1;
 
 
@@ -25,11 +36,11 @@ with qw( Pinto::Role::Interface::Action );
 
 =head1 NAME
 
-Pinto::Role::Interface::Action::Mirror - Interface for Action::Mirror
+Pinto::Role::Interface::Action::Stack::List - Interface for Action::Stack::List
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

@@ -1,20 +1,29 @@
-# ABSTRACT: Interface for Action::Purge
+# ABSTRACT: Something that has a target attribute
 
-package Pinto::Role::Interface::Action::Purge;
+package Pinto::Role::Attribute::targets;
 
 use Moose::Role;
+
+use Pinto::Types qw(ArrayRefOfPkgsOrDists);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Role::Interface::Action );
+has targets => (
+    isa      => ArrayRefOfPkgsOrDists,
+    traits   => [ qw(Array) ],
+    handles  => {targets => 'elements'},
+    required => 1,
+    coerce   => 1,
+);
 
 #------------------------------------------------------------------------------
+
 1;
 
 
@@ -25,11 +34,11 @@ with qw( Pinto::Role::Interface::Action );
 
 =head1 NAME
 
-Pinto::Role::Interface::Action::Purge - Interface for Action::Purge
+Pinto::Role::Attribute::targets - Something that has a target attribute
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 

@@ -1,32 +1,29 @@
-# ABSTRACT: Interface for Action::Rebuild
+# ABSTRACT: Something that has a distribution archives attribute
 
-package Pinto::Role::Interface::Action::Rebuild;
+package Pinto::Role::Attribute::archives;
 
 use Moose::Role;
 
-use MooseX::Types::Moose qw(Bool);
+use Pinto::Types qw(ArrayRefOfFiles);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.038'; # VERSION
+our $VERSION = '0.040_001'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Role::Interface::Action
-         Pinto::Meta::Attribute::Trait::Postable );
-
-#------------------------------------------------------------------------------
-
-has recompute => (
-    is      => 'ro',
-    isa     => Bool,
-    default => 0,
-    traits  => [ qw(Postable) ],
+has archives  => (
+    isa       => ArrayRefOfFiles,
+    traits    => [ qw(Array) ],
+    handles   => {archives => 'elements'},
+    required  => 1,
+    coerce    => 1,
 );
 
 #------------------------------------------------------------------------------
+
 1;
 
 
@@ -37,11 +34,11 @@ has recompute => (
 
 =head1 NAME
 
-Pinto::Role::Interface::Action::Rebuild - Interface for Action::Rebuild
+Pinto::Role::Attribute::archives - Something that has a distribution archives attribute
 
 =head1 VERSION
 
-version 0.038
+version 0.040_001
 
 =head1 AUTHOR
 
