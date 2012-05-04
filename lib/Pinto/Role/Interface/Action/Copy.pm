@@ -1,6 +1,6 @@
-# ABSTRACT: Interface for Action::Stack::List
+# ABSTRACT: Interface for Action::Copy
 
-package Pinto::Role::Interface::Action::Stack::List;
+package Pinto::Role::Interface::Action::Copy;
 
 use Moose::Role;
 use MooseX::Types::Moose qw(Str);
@@ -9,19 +9,26 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.040_001'; # VERSION
+our $VERSION = '0.040_002'; # VERSION
 
 #------------------------------------------------------------------------------
 
 with qw( Pinto::Role::Interface::Action
-         Pinto::Role::Attribute::out );
+         Pinto::Role::Attribute::description );
 
 #------------------------------------------------------------------------------
 
-has format => (
-    is      => 'ro',
-    isa     => Str,
-    default => "%M %-16k %-16j %U\n",
+has from_stack => (
+    is       => 'ro',
+    isa      => Str,
+    required => 1,
+);
+
+
+has to_stack => (
+    is       => 'ro',
+    isa      => Str,
+    required => 1,
 );
 
 #------------------------------------------------------------------------------
@@ -36,11 +43,11 @@ has format => (
 
 =head1 NAME
 
-Pinto::Role::Interface::Action::Stack::List - Interface for Action::Stack::List
+Pinto::Role::Interface::Action::Copy - Interface for Action::Copy
 
 =head1 VERSION
 
-version 0.040_001
+version 0.040_002
 
 =head1 AUTHOR
 

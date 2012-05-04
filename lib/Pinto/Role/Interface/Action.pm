@@ -8,7 +8,7 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.040_001'; # VERSION
+our $VERSION = '0.040_002'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ Pinto::Role::Interface::Action - Base interface for all Actions
 
 =head1 VERSION
 
-version 0.040_001
+version 0.040_002
 
 =head1 AUTHOR
 

@@ -1,6 +1,6 @@
-# ABSTRACT: Interface for Action::Stack::Props
+# ABSTRACT: Interface for Action::Stacks
 
-package Pinto::Role::Interface::Action::Stack::Props;
+package Pinto::Role::Interface::Action::Stacks;
 
 use Moose::Role;
 use MooseX::Types::Moose qw(Str);
@@ -9,7 +9,7 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.040_001'; # VERSION
+our $VERSION = '0.040_002'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -18,17 +18,10 @@ with qw( Pinto::Role::Interface::Action
 
 #------------------------------------------------------------------------------
 
-has stack  => (
-    is       => 'ro',
-    isa      => Str,
-    required => 1,
-);
-
-
 has format => (
     is      => 'ro',
     isa     => Str,
-    default => "%n = %v\n",
+    default => "%M %-16k %-16j %U\n",
 );
 
 #------------------------------------------------------------------------------
@@ -43,11 +36,11 @@ has format => (
 
 =head1 NAME
 
-Pinto::Role::Interface::Action::Stack::Props - Interface for Action::Stack::Props
+Pinto::Role::Interface::Action::Stacks - Interface for Action::Stacks
 
 =head1 VERSION
 
-version 0.040_001
+version 0.040_002
 
 =head1 AUTHOR
 

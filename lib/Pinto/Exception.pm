@@ -1,38 +1,35 @@
-# ABSTRACT: Interface for Action::Stack::Log
+# ABSTRACT: Base class for Pinto exceptions
 
-package Pinto::Role::Interface::Action::Stack::Log;
+package Pinto::Exception;
 
-use Moose::Role;
-use MooseX::Types::Moose qw(Bool Int);
+use Moose;
+use Moose::Exporter;
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.040_001'; # VERSION
+our $VERSION = '0.040_002'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Role::Interface::Action
-         Pinto::Role::Attribute::stack
-         Pinto::Role::Attribute::out );
+extends 'Throwable::Error';
 
 #------------------------------------------------------------------------------
 
-has revision => (
-    is        => 'ro',
-    isa       => Int,
-    predicate => 'has_revision',
-);
+Moose::Exporter->setup_import_methods( as_is => [ throw => \&throw ] );
 
-has detailed => (
-    is      => 'ro',
-    isa     => Bool,
-    default => 0,
-);
+#------------------------------------------------------------------------------
+# HACK: I'm not sure this will work with subclasses
+
+
+sub throw { return __PACKAGE__->SUPER::throw(@_) }
 
 #------------------------------------------------------------------------------
 
+__PACKAGE__->meta->make_immutable( inline_constructor => 0 );
+
+#------------------------------------------------------------------------------
 1;
 
 
@@ -43,11 +40,17 @@ has detailed => (
 
 =head1 NAME
 
-Pinto::Role::Interface::Action::Stack::Log - Interface for Action::Stack::Log
+Pinto::Exception - Base class for Pinto exceptions
 
 =head1 VERSION
 
-version 0.040_001
+version 0.040_002
+
+=head1 FUNCTIONS
+
+=head2 throw( $message )
+
+Throws an exception (of this class) with the given message.
 
 =head1 AUTHOR
 

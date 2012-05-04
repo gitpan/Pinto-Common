@@ -1,10 +1,9 @@
-# ABSTRACT: Something that has a norecurse attribute
+# ABSTRACT: Interface for Action::New
 
-package Pinto::Role::Attribute::norecurse;
+package Pinto::Role::Interface::Action::New;
 
 use Moose::Role;
-
-use MooseX::Types::Moose qw(Bool);
+use MooseX::Types::Moose qw(Str);
 
 use namespace::autoclean;
 
@@ -14,14 +13,18 @@ our $VERSION = '0.040_002'; # VERSION
 
 #------------------------------------------------------------------------------
 
-has norecurse => (
-    is        => 'ro',
-    isa       => Bool,
-    default   => 0,
-);
+with qw( Pinto::Role::Interface::Action
+         Pinto::Role::Attribute::description );
 
 #------------------------------------------------------------------------------
 
+has stack => (
+    is       => 'ro',
+    isa      => Str,
+    required => 1,
+);
+
+#------------------------------------------------------------------------------
 1;
 
 
@@ -32,7 +35,7 @@ has norecurse => (
 
 =head1 NAME
 
-Pinto::Role::Attribute::norecurse - Something that has a norecurse attribute
+Pinto::Role::Interface::Action::New - Interface for Action::New
 
 =head1 VERSION
 

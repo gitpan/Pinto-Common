@@ -1,21 +1,39 @@
-# ABSTRACT: Interface for Action::Stack::Remove
+# ABSTRACT: Interface for Action::Merge
 
-package Pinto::Role::Interface::Action::Stack::Remove;
+package Pinto::Role::Interface::Action::Merge;
 
 use Moose::Role;
+use MooseX::Types::Moose qw(Str);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.040_001'; # VERSION
+our $VERSION = '0.040_002'; # VERSION
 
 #------------------------------------------------------------------------------
 
 with qw( Pinto::Role::Interface::Action
-         Pinto::Role::Attribute::stack );
+         Pinto::Role::Attribute::dryrun );
 
 #------------------------------------------------------------------------------
+
+
+has from_stack => (
+    is       => 'ro',
+    isa      => Str,
+    required => 1,
+);
+
+
+has to_stack => (
+    is       => 'ro',
+    isa      => Str,
+    required => 1,
+);
+
+#------------------------------------------------------------------------------
+
 1;
 
 
@@ -26,11 +44,11 @@ with qw( Pinto::Role::Interface::Action
 
 =head1 NAME
 
-Pinto::Role::Interface::Action::Stack::Remove - Interface for Action::Stack::Remove
+Pinto::Role::Interface::Action::Merge - Interface for Action::Merge
 
 =head1 VERSION
 
-version 0.040_001
+version 0.040_002
 
 =head1 AUTHOR
 

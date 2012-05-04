@@ -27,109 +27,117 @@ no_index:
 provides:
   Pinto::Common:
     file: lib/Pinto/Common.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Constants:
     file: lib/Pinto/Constants.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::DistributionSpec:
     file: lib/Pinto/DistributionSpec.pm
-    version: 0.040_001
+    version: 0.040_002
+  Pinto::Exception:
+    file: lib/Pinto/Exception.pm
+    version: 0.040_002
   Pinto::Meta::Attribute::Trait::Postable:
     file: lib/Pinto/Meta/Attribute/Trait/Postable.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::PackageSpec:
     file: lib/Pinto/PackageSpec.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Attribute::archives:
     file: lib/Pinto/Role/Attribute/archives.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Attribute::author:
     file: lib/Pinto/Role/Attribute/author.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Attribute::description:
     file: lib/Pinto/Role/Attribute/description.pm
-    version: 0.040_001
+    version: 0.040_002
+  Pinto::Role::Attribute::dryrun:
+    file: lib/Pinto/Role/Attribute/dryrun.pm
+    version: 0.040_002
   Pinto::Role::Attribute::norecurse:
     file: lib/Pinto/Role/Attribute/norecurse.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Attribute::out:
     file: lib/Pinto/Role/Attribute/out.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Attribute::pausecfg:
     file: lib/Pinto/Role/Attribute/pausecfg.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Attribute::pin:
     file: lib/Pinto/Role/Attribute/pin.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Attribute::stack:
     file: lib/Pinto/Role/Attribute/stack.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Attribute::targets:
     file: lib/Pinto/Role/Attribute/targets.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Attribute::username:
     file: lib/Pinto/Role/Attribute/username.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Interface::Action:
     file: lib/Pinto/Role/Interface/Action.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Interface::Action::Add:
     file: lib/Pinto/Role/Interface/Action/Add.pm
-    version: 0.040_001
+    version: 0.040_002
+  Pinto::Role::Interface::Action::Copy:
+    file: lib/Pinto/Role/Interface/Action/Copy.pm
+    version: 0.040_002
+  Pinto::Role::Interface::Action::Edit:
+    file: lib/Pinto/Role/Interface/Action/Edit.pm
+    version: 0.040_002
+  Pinto::Role::Interface::Action::Install:
+    file: lib/Pinto/Role/Interface/Action/Install.pm
+    version: 0.040_002
   Pinto::Role::Interface::Action::List:
     file: lib/Pinto/Role/Interface/Action/List.pm
-    version: 0.040_001
+    version: 0.040_002
+  Pinto::Role::Interface::Action::Merge:
+    file: lib/Pinto/Role/Interface/Action/Merge.pm
+    version: 0.040_002
+  Pinto::Role::Interface::Action::New:
+    file: lib/Pinto/Role/Interface/Action/New.pm
+    version: 0.040_002
   Pinto::Role::Interface::Action::Nop:
     file: lib/Pinto/Role/Interface/Action/Nop.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Interface::Action::Pin:
     file: lib/Pinto/Role/Interface/Action/Pin.pm
-    version: 0.040_001
+    version: 0.040_002
+  Pinto::Role::Interface::Action::Props:
+    file: lib/Pinto/Role/Interface/Action/Props.pm
+    version: 0.040_002
   Pinto::Role::Interface::Action::Pull:
     file: lib/Pinto/Role/Interface/Action/Pull.pm
-    version: 0.040_001
-  Pinto::Role::Interface::Action::Stack::Copy:
-    file: lib/Pinto/Role/Interface/Action/Stack/Copy.pm
-    version: 0.040_001
-  Pinto::Role::Interface::Action::Stack::Create:
-    file: lib/Pinto/Role/Interface/Action/Stack/Create.pm
-    version: 0.040_001
-  Pinto::Role::Interface::Action::Stack::Edit:
-    file: lib/Pinto/Role/Interface/Action/Stack/Edit.pm
-    version: 0.040_001
-  Pinto::Role::Interface::Action::Stack::List:
-    file: lib/Pinto/Role/Interface/Action/Stack/List.pm
-    version: 0.040_001
-  Pinto::Role::Interface::Action::Stack::Log:
-    file: lib/Pinto/Role/Interface/Action/Stack/Log.pm
-    version: 0.040_001
-  Pinto::Role::Interface::Action::Stack::Props:
-    file: lib/Pinto/Role/Interface/Action/Stack/Props.pm
-    version: 0.040_001
-  Pinto::Role::Interface::Action::Stack::Remove:
-    file: lib/Pinto/Role/Interface/Action/Stack/Remove.pm
-    version: 0.040_001
+    version: 0.040_002
+  Pinto::Role::Interface::Action::Stacks:
+    file: lib/Pinto/Role/Interface/Action/Stacks.pm
+    version: 0.040_002
   Pinto::Role::Interface::Action::Statistics:
     file: lib/Pinto/Role/Interface/Action/Statistics.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Interface::Action::Unpin:
     file: lib/Pinto/Role/Interface/Action/Unpin.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Role::Interface::Action::Verify:
     file: lib/Pinto/Role/Interface/Action/Verify.pm
-    version: 0.040_001
+    version: 0.040_002
   Pinto::Types:
     file: lib/Pinto/Types.pm
-    version: 0.040_001
+    version: 0.040_002
 requires:
   Carp: 0
   Class::Load: 0
   Exporter: 0
   File::HomeDir: 0
+  File::Which: 0
   IO::File: 0
   IO::Handle: 0
   IO::String: 0
   Moose: 0
+  Moose::Exporter: 0
   Moose::Role: 0
   MooseX::Types: 0
   MooseX::Types::Moose: 0
@@ -137,6 +145,7 @@ requires:
   Path::Class::Dir: 0
   Path::Class::File: 0
   Readonly: 0
+  Throwable::Error: 0
   URI: 0
   base: 0
   namespace::autoclean: 0
@@ -148,4 +157,4 @@ requires:
 resources:
   bugtracker: https://github.com/thaljef/Pinto-Common/issues
   repository: git://github.com/thaljef/Pinto-Common.git
-version: 0.040_001
+version: 0.040_002

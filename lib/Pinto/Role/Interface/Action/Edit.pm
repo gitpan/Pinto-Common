@@ -1,6 +1,6 @@
-# ABSTRACT: Interface for Action::Stack::Edit
+# ABSTRACT: Interface for Action::Edit
 
-package Pinto::Role::Interface::Action::Stack::Edit;
+package Pinto::Role::Interface::Action::Edit;
 
 use Moose::Role;
 use MooseX::Types::Moose qw(Str HashRef Bool);
@@ -9,7 +9,7 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.040_001'; # VERSION
+our $VERSION = '0.040_002'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ has properties => (
 );
 
 
-has master => (
+has default => (
   is      => 'ro',
   isa     => Bool,
   default => 0,
@@ -50,11 +50,11 @@ has master => (
 
 =head1 NAME
 
-Pinto::Role::Interface::Action::Stack::Edit - Interface for Action::Stack::Edit
+Pinto::Role::Interface::Action::Edit - Interface for Action::Edit
 
 =head1 VERSION
 
-version 0.040_001
+version 0.040_002
 
 =head1 AUTHOR
 

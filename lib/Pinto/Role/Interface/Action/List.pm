@@ -9,7 +9,7 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.040_001'; # VERSION
+our $VERSION = '0.040_002'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -20,9 +20,11 @@ with qw( Pinto::Role::Interface::Action
 #------------------------------------------------------------------------------
 
 has format => (
-    is      => 'ro',
-    isa     => Str,
-    default => "%m%s%y %-40n %12v  %p\n",
+    is        => 'ro',
+    isa       => Str,
+    default   => "%m%s%y %-40n %12v  %p\n",
+    predicate => 'has_format',
+    lazy      => 1,
 );
 
 
@@ -59,7 +61,7 @@ Pinto::Role::Interface::Action::List - Interface for Action::List
 
 =head1 VERSION
 
-version 0.040_001
+version 0.040_002
 
 =head1 AUTHOR
 

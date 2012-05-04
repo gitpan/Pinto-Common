@@ -1,30 +1,27 @@
-# ABSTRACT: Interface for Action::Stack::Create
+# ABSTRACT: Something that has a dryrun attribute
 
-package Pinto::Role::Interface::Action::Stack::Create;
+package Pinto::Role::Attribute::dryrun;
 
 use Moose::Role;
-use MooseX::Types::Moose qw(Str);
+
+use MooseX::Types::Moose qw(Bool);
 
 use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.040_001'; # VERSION
+our $VERSION = '0.040_002'; # VERSION
 
 #------------------------------------------------------------------------------
 
-with qw( Pinto::Role::Interface::Action
-         Pinto::Role::Attribute::description );
-
-#------------------------------------------------------------------------------
-
-has stack => (
-    is       => 'ro',
-    isa      => Str,
-    required => 1,
+has dryrun => (
+    is        => 'ro',
+    isa       => Bool,
+    default   => 0,
 );
 
 #------------------------------------------------------------------------------
+
 1;
 
 
@@ -35,11 +32,11 @@ has stack => (
 
 =head1 NAME
 
-Pinto::Role::Interface::Action::Stack::Create - Interface for Action::Stack::Create
+Pinto::Role::Attribute::dryrun - Something that has a dryrun attribute
 
 =head1 VERSION
 
-version 0.040_001
+version 0.040_002
 
 =head1 AUTHOR
 
