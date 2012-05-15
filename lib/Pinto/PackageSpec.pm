@@ -11,7 +11,7 @@ use overload ('""' => 'to_string');
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.040_002'; # VERSION
+our $VERSION = '0.041'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ around BUILDARGS => sub {
 
     my @args = @_;
     if (@args == 1 and not ref $args[0]) {
-        my ($name, $version) = split m{-}x, $_[0], 2;
+        my ($name, $version) = split m{~}x, $_[0], 2;
         @args = (name => $name, version => $version || 0);
     }
 
@@ -49,7 +49,7 @@ around BUILDARGS => sub {
 
 sub to_string {
     my ($self) = @_;
-    return sprintf '%s-%s', $self->name, $self->version->stringify;
+    return sprintf '%s~%s', $self->name, $self->version->stringify;
 }
 
 #------------------------------------------------------------------------------
@@ -71,7 +71,7 @@ Pinto::PackageSpec - Specifies a package by name and version
 
 =head1 VERSION
 
-version 0.040_002
+version 0.041
 
 =head1 METHODS
 

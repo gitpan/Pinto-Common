@@ -1,17 +1,24 @@
-0.040_002 2012-05-04 15:22:43 America/Los_Angeles
+0.041     2012-05-15 11:07:07 America/Los_Angeles
 
-    Added interface for Action::Install.  Still alpha testing.
+     Updated Pinto::Manual
 
-0.040_001 2012-05-01 13:11:30 America/Los_Angeles
+     Removed unused roles and classes.
 
-    This is a developer release for alpha testing the stacks feature.
+     Added StackName and PropertyName types.
+
+0.038     2012-04-24 22:02:17 America/Los_Angeles
+
+     Bug Fixes:
+
+     Fixed the 02-authorable test, which would fail if you had a
+     ~/.pauserc file.
 
 0.037     2012-04-16 18:11:52 America/Los_Angeles
 
     Added DistributionSpec and PackageSpec classes.
 
-    Enhanced the Import action to accept either a
-    DistributionSpec or PackageSpec as the target.
+    Enhanced the Import action to accept either a DistributionSpec or
+    PackageSpec as the target.
 
 0.036     2012-04-08 23:38:19 America/Los_Angeles
 

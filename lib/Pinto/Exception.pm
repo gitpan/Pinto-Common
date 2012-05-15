@@ -9,7 +9,7 @@ use namespace::autoclean;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.040_002'; # VERSION
+our $VERSION = '0.041'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -44,7 +44,7 @@ Pinto::Exception - Base class for Pinto exceptions
 
 =head1 VERSION
 
-version 0.040_002
+version 0.041
 
 =head1 FUNCTIONS
 

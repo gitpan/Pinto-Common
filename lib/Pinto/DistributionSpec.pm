@@ -5,25 +5,26 @@ package Pinto::DistributionSpec;
 use Moose;
 
 use MooseX::Types::Moose qw(ArrayRef Str);
-use Pinto::Types qw(AuthorID);
+use Pinto::Types qw(Author);
 
 use overload ('""' => 'to_string');
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.040_002'; # VERSION
+our $VERSION = '0.041'; # VERSION
 
 #------------------------------------------------------------------------------
 
+
 has author => (
     is       => 'ro',
-    isa      => AuthorID,
+    isa      => Author,
     coerce   => 1,
     required => 1,
 );
 
 
-has basename => (
+has archive => (
     is       => 'ro',
     isa      => Str,
     required => 1,
@@ -47,13 +48,13 @@ around BUILDARGS => sub {
         my @path_parts = split m{/+}x, $args[0];
 
         my $author   = shift @path_parts;  # First element
-        my $basename = pop @path_parts;    # Last element
+        my $archive  = pop @path_parts;    # Last element
         my $subdirs  = [ @path_parts ];    # Everything else
 
         confess "Invalid distribution spec: $args[0]"
-            if not ($author and $basename);
+            if not ($author and $archive);
 
-        @args = (author => $author, subdirs => $subdirs, basename => $basename);
+        @args = (author => $author, subdirs => $subdirs, archive => $archive);
     }
 
     return $class->$orig(@args);
@@ -68,13 +69,13 @@ sub path {
 
     my $author   = $self->author;
     my @subdirs  = @{ $self->subdirs };
-    my $basename = $self->basename;
+    my $archive  = $self->archive;
 
     return join '/', substr($author, 0, 1),
                      substr($author, 0, 2),
                      $author,
                      @subdirs,
-                     $basename;
+                     $archive;
 }
 
 #------------------------------------------------------------------------------
@@ -85,11 +86,11 @@ sub to_string {
 
     my $author   = $self->author;
     my @subdirs  = @{ $self->subdirs };
-    my $basename = $self->basename;
+    my $archive  = $self->archive;
 
     return join '/', $author,
                      @subdirs,
-                     $basename;
+                     $archive;
 }
 
 #------------------------------------------------------------------------------
@@ -111,7 +112,7 @@ Pinto::DistributionSpec - Specifies a distribution by author and path fragments
 
 =head1 VERSION
 
-version 0.040_002
+version 0.041
 
 =head1 METHODS
 
