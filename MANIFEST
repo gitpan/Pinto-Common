@@ -11,6 +11,7 @@ lib/Pinto/Common.pm
 lib/Pinto/Constants.pm
 lib/Pinto/DistributionSpec.pm
 lib/Pinto/Exception.pm
+lib/Pinto/Manual.pod
 lib/Pinto/Manual/QuickStart.pod
 lib/Pinto/Manual/Tutorial.pod
 lib/Pinto/PackageSpec.pm
