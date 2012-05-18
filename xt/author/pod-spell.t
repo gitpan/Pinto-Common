@@ -32,6 +32,7 @@ Manual
 Tutorial
 QuickStart
 SpecFactory
+Introduction
 DistributionSpec
 PackageSpec
 Types
