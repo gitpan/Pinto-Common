@@ -36,5 +36,7 @@ Introduction
 DistributionSpec
 PackageSpec
 Types
+Role
+PauseConfig
 Exception
 

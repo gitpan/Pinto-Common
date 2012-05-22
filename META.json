@@ -37,13 +37,16 @@
             "Carp" : "0",
             "Class::Load" : "0",
             "Exporter" : "0",
+            "File::HomeDir" : "0",
             "IO::File" : "0",
             "IO::Handle" : "0",
             "IO::String" : "0",
             "Moose" : "0",
             "Moose::Exporter" : "0",
+            "Moose::Role" : "0",
             "MooseX::Types" : "0",
             "MooseX::Types::Moose" : "0",
+            "Path::Class" : "0",
             "Path::Class::Dir" : "0",
             "Path::Class::File" : "0",
             "Readonly" : "0",
@@ -63,7 +66,6 @@
             "File::Find" : "0",
             "File::Temp" : "0",
             "FindBin" : "0",
-            "Path::Class" : "0",
             "Test::Exception" : "0",
             "Test::More" : "0"
          }
@@ -72,47 +74,51 @@
    "provides" : {
       "Pinto::Common" : {
          "file" : "lib/Pinto/Common.pm",
-         "version" : "0.043"
+         "version" : "0.044"
       },
       "Pinto::Constants" : {
          "file" : "lib/Pinto/Constants.pm",
-         "version" : "0.043"
+         "version" : "0.044"
       },
       "Pinto::DistributionSpec" : {
          "file" : "lib/Pinto/DistributionSpec.pm",
-         "version" : "0.043"
+         "version" : "0.044"
       },
       "Pinto::Exception" : {
          "file" : "lib/Pinto/Exception.pm",
-         "version" : "0.043"
+         "version" : "0.044"
       },
       "Pinto::Manual" : {
          "file" : "lib/Pinto/Manual.pod",
-         "version" : "0.043"
+         "version" : "0.044"
       },
       "Pinto::Manual::Introduction" : {
          "file" : "lib/Pinto/Manual/Introduction.pod",
-         "version" : "0.043"
+         "version" : "0.044"
       },
       "Pinto::Manual::QuickStart" : {
          "file" : "lib/Pinto/Manual/QuickStart.pod",
-         "version" : "0.043"
+         "version" : "0.044"
       },
       "Pinto::Manual::Tutorial" : {
          "file" : "lib/Pinto/Manual/Tutorial.pod",
-         "version" : "0.043"
+         "version" : "0.044"
       },
       "Pinto::PackageSpec" : {
          "file" : "lib/Pinto/PackageSpec.pm",
-         "version" : "0.043"
+         "version" : "0.044"
+      },
+      "Pinto::Role::PauseConfig" : {
+         "file" : "lib/Pinto/Role/PauseConfig.pm",
+         "version" : "0.044"
       },
       "Pinto::SpecFactory" : {
          "file" : "lib/Pinto/SpecFactory.pm",
-         "version" : "0.043"
+         "version" : "0.044"
       },
       "Pinto::Types" : {
          "file" : "lib/Pinto/Types.pm",
-         "version" : "0.043"
+         "version" : "0.044"
       }
    },
    "release_status" : "stable",
@@ -126,6 +132,6 @@
          "web" : "https://github.com/thaljef/Pinto-Common"
       }
    },
-   "version" : "0.043"
+   "version" : "0.044"
 }
 

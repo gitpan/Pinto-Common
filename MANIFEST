@@ -16,6 +16,7 @@ lib/Pinto/Manual/Introduction.pod
 lib/Pinto/Manual/QuickStart.pod
 lib/Pinto/Manual/Tutorial.pod
 lib/Pinto/PackageSpec.pm
+lib/Pinto/Role/PauseConfig.pm
 lib/Pinto/SpecFactory.pm
 lib/Pinto/Types.pm
 perlcritic.ini

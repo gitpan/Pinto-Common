@@ -4,7 +4,7 @@ package Pinto::Manual::QuickStart;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.043'; # VERSION
+our $VERSION = '0.044'; # VERSION
 
 #------------------------------------------------------------------------------
 1;
@@ -21,7 +21,7 @@ Pinto::Manual::QuickStart - A condensed summary of Pinto
 
 =head1 VERSION
 
-version 0.043
+version 0.044
 
 =head1 CREATING THE REPOSITORY
 
