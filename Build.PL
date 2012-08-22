@@ -17,12 +17,12 @@ my %module_build_args = (
   "configure_requires" => {
     "Module::Build" => "0.3601"
   },
-  "dist_abstract" => "Common modules for the pinto-* utilities",
+  "dist_abstract" => "Common libraries for the L<Pinto> suite",
   "dist_author" => [
     "Jeffrey Ryan Thalhammer <jeff\@imaginative-software.com>"
   ],
   "dist_name" => "Pinto-Common",
-  "dist_version" => "0.045",
+  "dist_version" => "0.046",
   "license" => "perl",
   "module_name" => "Pinto::Common",
   "recommends" => {},

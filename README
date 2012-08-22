@@ -1,13 +1,12 @@
 NAME
-    Pinto::Common - Common modules for the pinto-* utilities
+    Pinto::Common - Common libraries for the Pinto suite
 
 VERSION
-    version 0.045
+    version 0.046
 
 DESCRIPTION
-    This distribution exists to provide modules that are used across
-    pinto-admin, pinto-server, and pinto-remote. There are no
-    user-serviceable parts in this distribution.
+    This distribution exists to provide modules that are used across pinto
+    and pintod. There are no user-serviceable parts in this distribution.
 
 SUPPORT
   Perldoc
