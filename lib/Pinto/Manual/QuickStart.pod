@@ -21,11 +21,15 @@ Pinto::Manual::QuickStart - A condensed summary of Pinto
 
 =head1 VERSION
 
-version 0.047
+version 0.048
 
 =head1 CREATING THE REPOSITORY
 
+  # A new repository, default stack will be named "init"
   pinto -r /repos/dir init
+
+  # A new repository, default stack will be named "dev"
+  pinto -r /repos/dir init --stack dev
 
 =head1 BROWSING THE REPOSITORY
 
@@ -132,6 +136,20 @@ version 0.047
   # Unpin a distribution
   pinto -r /repos/dir unpin AUTHOR/Some-Dist-1.0.tar.gz
 
+=head1 VERSION CONTROL
+
+  # View commit messages for the default stack
+  pinto -r /repos/dir log
+
+  # View commit message from revision 12 of a stack called "dev"
+  pinto -r /repos/dir log dev@12
+
+  # Rollback the default stack to the previous revision
+  pinto -r /repos/dir revert
+
+  # Rollback the "qa" stack to revision 29
+  pinto -r /repos/dir revert qa@29
+
 =head1 MISCELLANY
 
   # Report missing distribution archives
@@ -139,9 +157,6 @@ version 0.047
 
   # Report repos statistics
   pinto -r /repos/dir stats
-
-  # Show the index file for a called "dev"
-  pinto -r /repos/dir index --stack dev
 
 =head1 GETTING MORE HELP
 

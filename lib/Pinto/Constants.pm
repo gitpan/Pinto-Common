@@ -11,7 +11,7 @@ use base 'Exporter';
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.047'; # VERSION
+our $VERSION = '0.048'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -32,6 +32,8 @@ Readonly our @EXPORT_OK => qw(
     $PINTO_DEFAULT_LOG_COLORS
 
     $PINTO_REPOSITORY_ROOT_ENV_VAR
+
+    $PINTO_STACK_NAME_ALL
 );
 
 Readonly our %EXPORT_TAGS => ( all => \@EXPORT_OK );
@@ -83,6 +85,10 @@ Readonly our $PINTO_DEFAULT_LOG_COLORS => { debug    => $COLOR_NORMAL,
 Readonly our $PINTO_REPOSITORY_ROOT_ENV_VAR  => 'PINTO_REPOSITORY_ROOT';
 
 #------------------------------------------------------------------------------
+
+Readonly our $PINTO_STACK_NAME_ALL  => '%';
+
+#------------------------------------------------------------------------------
 1;
 
 
@@ -97,7 +103,7 @@ Pinto::Constants - Constants used across the Pinto utilities
 
 =head1 VERSION
 
-version 0.047
+version 0.048
 
 =head1 AUTHOR
 

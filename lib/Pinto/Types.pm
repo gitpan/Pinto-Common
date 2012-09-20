@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 use MooseX::Types -declare => [ qw( Author Uri Dir File Files Io Vers StackName
-                                    StackAt StackDefault PropertyName PkgSpec
+                                    StackAll StackDefault PropertyName PkgSpec
                                     DistSpec Spec Specs) ];
 
 use MooseX::Types::Moose qw( Str Num ScalarRef ArrayRef Undef
@@ -20,13 +20,14 @@ use IO::Handle;
 use IO::File;
 
 use Pinto::SpecFactory;
+use Pinto::Constants qw(:all);
 
 use version;
 use namespace::autoclean;
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = '0.047'; # VERSION
+our $VERSION = '0.048'; # VERSION
 
 #-----------------------------------------------------------------------------
 
@@ -52,10 +53,10 @@ coerce StackName,
 
 #-----------------------------------------------------------------------------
 
-subtype StackAt,
+subtype StackAll,
   as      Str,
-  where   { $_ eq '@' },
-  message { q{The stack name must be '@'} };
+  where   { $_ eq $PINTO_STACK_NAME_ALL },
+  message { qq{The stack name must be '$PINTO_STACK_NAME_ALL'} };
 
 #-----------------------------------------------------------------------------
 
@@ -172,7 +173,7 @@ Pinto::Types - Moose types used within Pinto
 
 =head1 VERSION
 
-version 0.047
+version 0.048
 
 =head1 AUTHOR
 

@@ -2,7 +2,7 @@ NAME
     Pinto::Common - Common libraries for the Pinto suite
 
 VERSION
-    version 0.047
+    version 0.048
 
 DESCRIPTION
     This distribution exists to provide modules that are used across pinto
