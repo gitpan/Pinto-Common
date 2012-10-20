@@ -11,7 +11,7 @@ use base 'Exporter';
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.048'; # VERSION
+our $VERSION = '0.049'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -34,6 +34,10 @@ Readonly our @EXPORT_OK => qw(
     $PINTO_REPOSITORY_ROOT_ENV_VAR
 
     $PINTO_STACK_NAME_ALL
+
+    $PINTO_AUTHOR_REGEX
+    $PINTO_STACK_NAME_REGEX
+    $PINTO_PROPERTY_NAME_REGEX
 );
 
 Readonly our %EXPORT_TAGS => ( all => \@EXPORT_OK );
@@ -89,6 +93,14 @@ Readonly our $PINTO_REPOSITORY_ROOT_ENV_VAR  => 'PINTO_REPOSITORY_ROOT';
 Readonly our $PINTO_STACK_NAME_ALL  => '%';
 
 #------------------------------------------------------------------------------
+
+Readonly my $PINTO_ALPHANUMERIC_REGEX   => qr{^ [a-zA-Z0-9-_]+ $}x;
+
+Readonly our $PINTO_AUTHOR_REGEX        => $PINTO_ALPHANUMERIC_REGEX;
+Readonly our $PINTO_STACK_NAME_REGEX    => $PINTO_ALPHANUMERIC_REGEX;
+Readonly our $PINTO_PROPERTY_NAME_REGEX => $PINTO_ALPHANUMERIC_REGEX;
+
+#------------------------------------------------------------------------------
 1;
 
 
@@ -103,7 +115,7 @@ Pinto::Constants - Constants used across the Pinto utilities
 
 =head1 VERSION
 
-version 0.048
+version 0.049
 
 =head1 AUTHOR
 

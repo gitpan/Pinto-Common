@@ -11,7 +11,7 @@ use overload ('""' => 'to_string');
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.048'; # VERSION
+our $VERSION = '0.049'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -19,8 +19,16 @@ our $VERSION = '0.048'; # VERSION
 has author => (
     is       => 'ro',
     isa      => Author,
-    coerce   => 1,
     required => 1,
+);
+
+
+has author_canonical => (
+    is       => 'ro',
+    isa      => Str,
+    init_arg => undef,
+    default  => sub { uc $_[0]->author },
+    lazy     => 1,
 );
 
 
@@ -67,7 +75,7 @@ around BUILDARGS => sub {
 sub path {
     my ($self) = @_;
 
-    my $author   = $self->author;
+    my $author   = $self->author_canonical;
     my @subdirs  = @{ $self->subdirs };
     my $archive  = $self->archive;
 
@@ -112,7 +120,7 @@ Pinto::DistributionSpec - Specifies a distribution by author and path fragments
 
 =head1 VERSION
 
-version 0.048
+version 0.049
 
 =head1 METHODS
 

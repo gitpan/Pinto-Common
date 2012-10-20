@@ -27,29 +27,21 @@ use namespace::autoclean;
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = '0.048'; # VERSION
+our $VERSION = '0.049'; # VERSION
 
 #-----------------------------------------------------------------------------
 
 subtype Author,
   as Str,
-  where   { m/^ [A-Z0-9-]+ $/x },
+  where   { $_ =~ $PINTO_AUTHOR_REGEX },
   message { 'The author id (' . (defined() ? $_ : 'undef') . ') must be alphanumeric' };
-
-coerce Author,
-  from Str,
-  via  { uc $_ };
 
 #-----------------------------------------------------------------------------
 
 subtype StackName,
   as      Str,
-  where   { m/^ [a-z0-9-_]+ $/x },
+  where   { $_ =~ $PINTO_STACK_NAME_REGEX },
   message { 'The stack name (' . (defined() ? $_ : 'undef') . ') must be alphanumeric' };
-
-coerce StackName,
-  from Str,
-  via  { lc $_ };
 
 #-----------------------------------------------------------------------------
 
@@ -67,12 +59,8 @@ subtype StackDefault,
 
 subtype PropertyName,
   as      Str,
-  where   { m/^ [a-z0-9-_]+ $/x },
+  where   { $_ =~ $PINTO_PROPERTY_NAME_REGEX },
   message { 'The property name (' . (defined() ? $_ : 'undef') . 'must be alphanumeric' };
-
-coerce PropertyName,
-  from Str,
-  via  { lc $_ };
 
 #-----------------------------------------------------------------------------
 
@@ -173,7 +161,7 @@ Pinto::Types - Moose types used within Pinto
 
 =head1 VERSION
 
-version 0.048
+version 0.049
 
 =head1 AUTHOR
 
