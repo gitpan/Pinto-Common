@@ -21,7 +21,7 @@ Pinto::Manual::QuickStart - A condensed summary of Pinto
 
 =head1 VERSION
 
-version 0.049
+version 0.050
 
 =head1 CREATING THE REPOSITORY
 
@@ -155,7 +155,7 @@ version 0.049
   # Report missing distribution archives
   pinto -r /repos/dir verify
 
-  # Report repos statistics
+  # Report repo statistics
   pinto -r /repos/dir stats
 
 =head1 GETTING MORE HELP

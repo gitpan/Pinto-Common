@@ -12,7 +12,7 @@ use namespace::autoclean;
 
 #-------------------------------------------------------------------------------
 
-our $VERSION = '0.049'; # VERSION
+our $VERSION = '0.050'; # VERSION
 
 #-------------------------------------------------------------------------------
 
@@ -58,7 +58,7 @@ Pinto::SpecFactory - Create Spec objects from strings
 
 =head1 VERSION
 
-version 0.049
+version 0.050
 
 =head1 METHODS
 
