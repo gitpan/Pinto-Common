@@ -27,7 +27,9 @@ QuickStart
 SpecFactory
 Introduction
 DistributionSpec
+Globals
 PackageSpec
+Util
 Types
 Role
 PauseConfig

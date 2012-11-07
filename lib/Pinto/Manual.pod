@@ -13,7 +13,7 @@ package Pinto::Manual;
 
 =pod
 
-=for :stopwords Jeffrey Ryan Thalhammer Imaginative Software Systems
+=for :stopwords Jeffrey Ryan Thalhammer Imaginative Software Systems Stratopan
 
 =head1 NAME
 
@@ -21,7 +21,7 @@ Pinto::Manual - Entry point for Pinto documentation
 
 =head1 VERSION
 
-version 0.050
+version 0.062
 
 =head1 TABLE OF CONTENTS
 
@@ -42,6 +42,19 @@ Presents a narrative explanation of how to use L<Pinto>.
 Presents a condensed summary of L<pinto> commands.
 
 =back
+
+=head1 SEE ALSO
+
+L<Stratopan|http://stratopan.com> is a web service built on Pinto.
+Using Stratopan, you can store all your public and private Perl
+modules in the cloud without having to create and manage your own
+Pinto repository.  Stratopan also has facilities for creating teams of
+collaborators, controlling access to your repositories, browsing your
+repository contents or revision history, and visualizing your
+dependency tree.
+
+At the time of this writing, L<Stratopan|http://stratopan.com> is
+still in the alpha stage.  But it definitely worth investigation.
 
 =head1 AUTHOR
 

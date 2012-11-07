@@ -27,7 +27,7 @@ use namespace::autoclean;
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = '0.050'; # VERSION
+our $VERSION = '0.062'; # VERSION
 
 #-----------------------------------------------------------------------------
 
@@ -161,7 +161,7 @@ Pinto::Types - Moose types used within Pinto
 
 =head1 VERSION
 
-version 0.050
+version 0.062
 
 =head1 AUTHOR
 
