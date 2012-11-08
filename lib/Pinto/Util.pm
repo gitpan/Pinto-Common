@@ -26,7 +26,7 @@ use base qw(Exporter);
 
 #-------------------------------------------------------------------------------
 
-our $VERSION = '0.062'; # VERSION
+our $VERSION = '0.063'; # VERSION
 
 #-------------------------------------------------------------------------------
 
@@ -43,7 +43,7 @@ Readonly our @EXPORT_OK => qw(
     sha256
 );
 
-Readonly our %EXPORT_TAGS = ( all => \@EXPORT_OK );
+Readonly our %EXPORT_TAGS => ( all => \@EXPORT_OK );
 
 #-------------------------------------------------------------------------------
 
@@ -238,7 +238,7 @@ Pinto::Util - Static utility functions for Pinto
 
 =head1 VERSION
 
-version 0.062
+version 0.063
 
 =head1 DESCRIPTION
 

@@ -7,7 +7,7 @@ use warnings;
 
 use MooseX::Types -declare => [ qw( Author Uri Dir File Files Io Vers StackName
                                     StackAll StackDefault PropertyName PkgSpec
-                                    DistSpec Spec Specs) ];
+                                    StackObject DistSpec Spec Specs) ];
 
 use MooseX::Types::Moose qw( Str Num ScalarRef ArrayRef Undef
                              HashRef FileHandle Object Int );
@@ -27,7 +27,7 @@ use namespace::autoclean;
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = '0.062'; # VERSION
+our $VERSION = '0.063'; # VERSION
 
 #-----------------------------------------------------------------------------
 
@@ -54,6 +54,10 @@ subtype StackAll,
 
 subtype StackDefault,
   as      Undef;
+
+#-----------------------------------------------------------------------------
+
+class_type StackObject, {class => 'Pinto::Schema::Result::Stack'};
 
 #-----------------------------------------------------------------------------
 
@@ -161,7 +165,7 @@ Pinto::Types - Moose types used within Pinto
 
 =head1 VERSION
 
-version 0.062
+version 0.063
 
 =head1 AUTHOR
 
