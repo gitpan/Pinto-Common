@@ -26,7 +26,7 @@ use base qw(Exporter);
 
 #-------------------------------------------------------------------------------
 
-our $VERSION = '0.063'; # VERSION
+our $VERSION = '0.064'; # VERSION
 
 #-------------------------------------------------------------------------------
 
@@ -41,6 +41,8 @@ Readonly our @EXPORT_OK => qw(
     md5
     mtime
     sha256
+    interpolate
+    trim
 );
 
 Readonly our %EXPORT_TAGS => ( all => \@EXPORT_OK );
@@ -176,20 +178,6 @@ sub validate_stack_name {
 #-------------------------------------------------------------------------------
 
 
-
-sub ls_time_format {
-    my ($time) = @_;
-    my $now = time;
-    my $diff = $now - $time;
-    my $one_year = 60 * 60 * 24 * 365;  # seconds per year
-
-    my $format = $diff > $one_year ? '%b %e  %Y' : '%b %e %H:%M';
-    return DateTime->from_epoch( time_zone => 'local', epoch => $time )->strftime($format);
-}
-
-#-------------------------------------------------------------------------------
-
-
 sub current_time {
 
     ## no critic qw(PackageVars)
@@ -224,6 +212,27 @@ sub is_interactive {
 }
 
 #-------------------------------------------------------------------------------
+
+
+sub interpolate {
+    my $string = shift;
+
+    return eval qq{"$string"};  ## no critic qw(Eval)
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub trim {
+    my $string = shift;
+
+    $string =~ s/^ \s+  //x;
+    $string =~ s/  \s+ $//x;
+
+    return $string;
+}
+
+#-------------------------------------------------------------------------------
 1;
 
 
@@ -238,7 +247,7 @@ Pinto::Util - Static utility functions for Pinto
 
 =head1 VERSION
 
-version 0.063
+version 0.064
 
 =head1 DESCRIPTION
 
@@ -306,13 +315,6 @@ must be alphanumeric plus any underscores or hyphens.
 Throws an exception if the stack name is invalid.  Currently, stack names must 
 be alphanumeric plus underscores or hyphens.
 
-=head2 ls_time_format( $seconds_since_epoch )
-
-Formats a time value into a string that is similar to what you see in
-the output from the C<ls -l> command.  If the given time is less than
-1 year ago from now, you'll see the month, day, and time.  If the time
-is more than 1 year ago, you'll see the month, day, and year.
-
 =head2 current_time()
 
 Returns the current time (in epoch seconds) unless the current time has been
@@ -328,6 +330,16 @@ C<$Pinto::Globals::current_user>.
 Returns true if the process is connected to an interactive terminal
 (i.e.  a keyboard & screen) unless it has been overridden by
 C<$Pinto::Globals::is_interactive>.
+
+=head2 interpolate($string)
+
+Performs interpolation on a literal string.  The string should not
+include anything that looks like a variable.  Only metacharacters
+(like \n) will be interpolated correctly.
+
+=head2 trim($string)
+
+Returns the string with all leading and trailing whitespace removed.
 
 =head1 AUTHOR
 

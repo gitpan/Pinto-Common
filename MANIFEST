@@ -27,6 +27,7 @@ t/01-types.t
 t/02-package-spec.t
 t/03-distribution-spec.t
 t/04-util.t
+t/05-pauseconfig.t
 t/lib/TestClass.pm
 weaver.ini
 xt/author/critic.t

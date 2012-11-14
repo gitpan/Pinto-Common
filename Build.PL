@@ -12,7 +12,8 @@ my %module_build_args = (
     "FindBin" => 0,
     "Module::Build" => "0.3601",
     "Test::Exception" => 0,
-    "Test::More" => 0
+    "Test::More" => 0,
+    "Test::Warn" => 0
   },
   "configure_requires" => {
     "Module::Build" => "0.3601"
@@ -22,7 +23,7 @@ my %module_build_args = (
     "Jeffrey Ryan Thalhammer <jeff\@imaginative-software.com>"
   ],
   "dist_name" => "Pinto-Common",
-  "dist_version" => "0.063",
+  "dist_version" => "0.064",
   "license" => "perl",
   "module_name" => "Pinto::Common",
   "recommends" => {},

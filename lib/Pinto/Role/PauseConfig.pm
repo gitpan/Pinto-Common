@@ -12,7 +12,7 @@ use File::HomeDir;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.063'; # VERSION
+our $VERSION = '0.064'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -61,6 +61,7 @@ sub _build_pausecfg {
     while (<$fh>) {
         next if /^ \s* (?: [#].*)? $/x;
         my ($k, $v) = /^ \s* (\w+) \s+ (.+?) \s* $/x;
+        next unless $k;
         $cfg->{$k} = $v;
     }
 
@@ -83,7 +84,7 @@ Pinto::Role::PauseConfig - Something that has a pause config attribute
 
 =head1 VERSION
 
-version 0.063
+version 0.064
 
 =head1 ATTRIBUTES
 
