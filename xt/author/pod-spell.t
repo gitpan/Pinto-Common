@@ -9,8 +9,8 @@ set_spell_cmd('aspell list');
 add_stopwords(<DATA>);
 all_pod_files_spelling_ok('bin', 'lib');
 __DATA__
-PASSed
-VCS
+Git's
+SHA
 Jeffrey
 Ryan
 Thalhammer

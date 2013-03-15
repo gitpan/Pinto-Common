@@ -1,23 +1,24 @@
-package Pinto::Util;
-
 # ABSTRACT: Static utility functions for Pinto
+
+package Pinto::Util;
 
 use strict;
 use warnings;
 use version;
 
 use Carp;
+use DateTime;
 use Try::Tiny;
 use Path::Class;
 use Digest::MD5;
 use Digest::SHA;
 use Scalar::Util;
+use UUID::Tiny;
 use IO::Interactive;
-use DateTime;
 use Readonly;
 
 use Pinto::Globals;
-use Pinto::Constants qw($PINTO_STACK_NAME_REGEX $PINTO_PROPERTY_NAME_REGEX);
+use Pinto::Constants qw(:all);
 use Pinto::Exception qw(throw);
 
 use namespace::autoclean;
@@ -26,23 +27,35 @@ use base qw(Exporter);
 
 #-------------------------------------------------------------------------------
 
-our $VERSION = '0.064'; # VERSION
+our $VERSION = '0.065_01'; # VERSION
 
 #-------------------------------------------------------------------------------
 
 Readonly our @EXPORT_OK => qw(
     author_dir
-    current_time
-    current_user
+    body_text
+    current_author_id
+    current_utc_time
+    current_time_offset
+    current_username
+    decamelize
+    indent_text
+    interpolate
     is_interactive
+    is_stack_all
+    is_system_prop
     is_vcs_file
     isa_perl
     itis
     md5
+    mksymlink
     mtime
+    parse_dist_path
     sha256
-    interpolate
-    trim
+    title_text
+    trim_text
+    truncate_text
+    uuid
 );
 
 Readonly our %EXPORT_TAGS => ( all => \@EXPORT_OK );
@@ -72,21 +85,19 @@ sub itis {
 sub parse_dist_path {
     my ($path) = @_;
 
-    # /yadda/authors/id/A/AU/AUTHOR/subdir1/subdir2/Foo-1.0.tar.gz
+    # eg: /yadda/authors/id/A/AU/AUTHOR/subdir1/subdir2/Foo-1.0.tar.gz
+    # or: A/AU/AUTHOR/subdir/Foo-1.0.tar.gz
 
-    if ( $path =~ s{^ (.*) /authors/id/(.*) $}{$2}mx ) {
+    if ( $path =~ s{^ (?:.*/authors/id/)? (.*) $}{$1}mx ) {
 
-        # $path = 'A/AU/AUTHOR/subdir/Foo-1.2.tar.gz'
+        # $path = 'A/AU/AUTHOR/subdir/Foo-1.0.tar.gz'
         my @path_parts = split m{ / }mx, $path;
         my $author  = $path_parts[2];  # AUTHOR
         my $archive = $path_parts[-1]; # Foo-1.0.tar.gz
         return ($author, $archive);
     }
-    else {
 
-        confess 'Unable to parse url: $url';
-    }
-
+    confess "Unable to parse path: $path";
 }
 
 #-------------------------------------------------------------------------------
@@ -178,11 +189,11 @@ sub validate_stack_name {
 #-------------------------------------------------------------------------------
 
 
-sub current_time {
+sub current_utc_time {
 
     ## no critic qw(PackageVars)
-    return $Pinto::Globals::current_time
-      if defined $Pinto::Globals::current_time;
+    return $Pinto::Globals::current_utc_time
+      if defined $Pinto::Globals::current_utc_time;
 
     return time;
 }
@@ -190,13 +201,46 @@ sub current_time {
 #-------------------------------------------------------------------------------
 
 
-sub current_user {
+sub current_time_offset {
 
     ## no critic qw(PackageVars)
-    return $Pinto::Globals::current_user
-      if defined $Pinto::Globals::current_user;
+    return $Pinto::Globals::current_time_offset
+      if defined $Pinto::Globals::current_time_offset;
 
-    return $ENV{USER} || $ENV{LOGIN} || $ENV{USERNAME} || $ENV{LOGNAME};
+    my $now    = current_utc_time;
+    my $time   = DateTime->from_epoch(epoch => $now, time_zone => 'local');
+
+    return $time->offset;
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub current_username {
+
+    ## no critic qw(PackageVars)
+    return $Pinto::Globals::current_username
+      if defined $Pinto::Globals::current_username;
+
+    my $username =  $ENV{PINTO_USERNAME} || $ENV{USER} || $ENV{LOGIN} || $ENV{USERNAME} || $ENV{LOGNAME};
+
+    croak "Unable to determine your username.  Set PINTO_USERNAME." if not $username;
+
+    return $username
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub current_author_id {
+
+    ## no critic qw(PackageVars)
+    return $Pinto::Globals::current_author_id
+      if defined $Pinto::Globals::current_author_id;
+
+    my $author_id =  $ENV{PINTO_AUTHOR_ID} || uc current_username;
+
+    return $author_id;
 }
 
 #-------------------------------------------------------------------------------
@@ -223,7 +267,7 @@ sub interpolate {
 #-------------------------------------------------------------------------------
 
 
-sub trim {
+sub trim_text {
     my $string = shift;
 
     $string =~ s/^ \s+  //x;
@@ -233,9 +277,114 @@ sub trim {
 }
 
 #-------------------------------------------------------------------------------
+
+
+sub title_text {
+    my $string = shift;
+
+    my $nl = index $string, "\n";
+    return $nl < 0 ? $string : substr $string, 0, $nl;
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub body_text {
+    my $string = shift;
+
+    my $nl = index $string, "\n";
+    return '' if $nl < 0 or $nl == length $string;
+    return substr $string, $nl + 1;
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub truncate_text {
+    my ($string, $max_length, $elipses) = @_;
+
+    return $string if not $max_length;
+    return $string if length $string <= $max_length;
+
+    $elipses = '...' if not defined $elipses;
+
+    my $truncated = substr $string, 0, $max_length;
+
+    return $truncated . $elipses;
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub decamelize {
+    my $string = shift;
+
+    return if not defined $string;
+
+    $string =~ s/ ([a-z]) ([A-Z]) /$1_$2/xg;
+
+    return lc $string;
+}
+
+
+#-------------------------------------------------------------------------------
+
+
+sub indent_text {
+    my ($string, $spaces) = @_;
+
+    return $string if not $spaces;
+    return $string if not $string;
+
+    my $indent = ' ' x $spaces;
+    $string =~ s/^ /$indent/xmg;
+
+    return $string;
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub mksymlink {
+    my ($from, $to) = @_;
+
+    # TODO: Try to add Win32 support here, somehow.
+    symlink $to, $from or croak "symlink to $to from $from failed: $!";
+
+    return 1;
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub is_stack_all {
+    my $stack_name = shift;
+
+    return defined $stack_name && $stack_name eq $PINTO_STACK_NAME_ALL;
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub is_system_prop {
+    my $string = shift;
+
+    return 0 if not $string;
+    return $string =~ m/^ pinto- /x;
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub uuid {
+  return UUID::Tiny::create_uuid_as_string( UUID::Tiny::UUID_V4 );
+}
+
+
+#-------------------------------------------------------------------------------
 1;
 
-
+__END__
 
 =pod
 
@@ -247,7 +396,7 @@ Pinto::Util - Static utility functions for Pinto
 
 =head1 VERSION
 
-version 0.064
+version 0.065_01
 
 =head1 DESCRIPTION
 
@@ -272,9 +421,11 @@ C<$class>.
 
 =head2 parse_dist_path( $path )
 
-Parses a path like one would see in the URL to a distribution in a
-CPAN repository and returns the author and file name of the
-distribution.  Other subdirectories in the path are ignored.
+Parses a path like the ones you would see in a full URL to a
+distribution in a CPAN repository, or the URL fragment you would see
+in a CPAN index.  Returns the author and file name of the
+distribution.  Subdirectories between the author name and the file
+name are discarded.
 
 =head2 isa_perl( $path_or_url )
 
@@ -285,7 +436,7 @@ the wild.  It may not be completely accurate.
 =head2 is_vcs_file( $path );
 
 Returns true if C<$path> appears to point to a file that is an
-internal part of a VCS system.
+internal part of a version control system.
 
 =head2 mtime( $file )
 
@@ -307,23 +458,39 @@ thrown.
 
 =head2 validate_property_name( $prop_name )
 
-Throws an exception if the property name is invalid.  Currently, property names 
-must be alphanumeric plus any underscores or hyphens.
+Throws an exception if the property name is invalid.  Currently,
+property names must be alphanumeric plus any underscores or hyphens.
 
 =head2 validate_stack_name( $stack_name )
 
-Throws an exception if the stack name is invalid.  Currently, stack names must 
-be alphanumeric plus underscores or hyphens.
+Throws an exception if the stack name is invalid.  Currently, stack
+names must be alphanumeric plus underscores or hyphens.
 
-=head2 current_time()
+=head2 current_utc_time()
 
 Returns the current time (in epoch seconds) unless the current time has been
-overridden by C<$Pinto::Globals::current_time>.
+overridden by C<$Pinto::Globals::current_utc_time>.
 
-=head2 current_user()
+=head2 current_time_offset()
 
-Returns the id of the current user unless it has been overridden by
-C<$Pinto::Globals::current_user>.
+Returns the offset between current UTC time and the local time in
+seconds, unless overridden by C<$Pinto::Globals::current_time_offset>.
+The C<current_time> function is used to determine the current UTC
+time.
+
+=head2 current_username()
+
+Returns the username of the current user unless it has been overridden by
+C<$Pinto::Globals::current_username>.  The username can be defined through
+a number of environment variables.  Throws an exception if no username
+can be determined.
+
+=head2 current_author_id()
+
+Returns the author id of the current user unless it has been overridden by
+C<$Pinto::Globals::current_author_id>.  The author id can be defined through
+environment variables.  Otherwise it defaults to the upper-case form of the
+C<current_username>.
 
 =head2 is_interactive()
 
@@ -337,9 +504,56 @@ Performs interpolation on a literal string.  The string should not
 include anything that looks like a variable.  Only metacharacters
 (like \n) will be interpolated correctly.
 
-=head2 trim($string)
+=head2 trim_text($string)
 
 Returns the string with all leading and trailing whitespace removed.
+
+=head2 title_text($string)
+
+Returns all the characters in C<$string> before the first newline.  If
+there is no newline, returns the entire C<$string>.
+
+=head2 body_text($string)
+
+Returns all the characters in C<$string> after the first newline.  If
+there is no newline, returns an empty string.
+
+=head2 truncate_text($string, $length, $elipses)
+
+Truncates the C<$string> and appends C<$elipses> if the C<$string> is 
+longer than C<$length> characters.  C<$elipses> defaults to '...' if 
+not specified.
+
+=head2 decamelize($string)
+
+Returns the string forced to lower case and words separated by underscores.
+For example C<FooBar> becomes C<foo_bar>.
+
+=head2 indent_text($string, $n)
+
+Returns a copy of C<$string> with each line indented by C<$n> spaces.
+In other words, it puts C<4n> spaces immediately after each newline
+in C<$string>.  The original C<$string> is not modified.
+
+=head2 mksymlink($from => $to)
+
+Creates a symlink between the two files.  No checks are performed to see
+if either path is valid or already exists.  Throws an exception if the
+operation fails or is not supported.
+
+=head2 is_stack_all($stack_name)
+
+Returns true if the given C<$stack_name> matches the name of the magical
+C<STACK_ALL> which represents all stacks.
+
+=head2 is_system_prop($string)
+
+Returns true if C<$string> is the name of a system property.
+
+=head2 uuid()
+
+Returns a UUID as a string.  Currently, the UUID is derived from
+random numbers.
 
 =head1 AUTHOR
 
@@ -353,8 +567,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-
-

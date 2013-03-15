@@ -11,7 +11,7 @@ use base 'Exporter';
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.064'; # VERSION
+our $VERSION = '0.065_01'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -36,8 +36,10 @@ Readonly our @EXPORT_OK => qw(
     $PINTO_STACK_NAME_ALL
 
     $PINTO_AUTHOR_REGEX
+    $PINTO_USERNAME_REGEX
     $PINTO_STACK_NAME_REGEX
     $PINTO_PROPERTY_NAME_REGEX
+    $PINTO_REVISION_ID_REGEX
 );
 
 Readonly our %EXPORT_TAGS => ( all => \@EXPORT_OK );
@@ -94,16 +96,19 @@ Readonly our $PINTO_STACK_NAME_ALL  => '%';
 
 #------------------------------------------------------------------------------
 
-Readonly my $PINTO_ALPHANUMERIC_REGEX   => qr{^ [a-zA-Z0-9-_]+ $}x;
+Readonly my $PINTO_ALPHANUMERIC_REGEX  => qr{^ [a-zA-Z0-9-_]+ $}x;
+Readonly my $PINTO_HEXADECIMAL_UUID_REGEX   => qr{^ [a-f0-9-]+ $}x;
 
 Readonly our $PINTO_AUTHOR_REGEX        => $PINTO_ALPHANUMERIC_REGEX;
+Readonly our $PINTO_USERNAME_REGEX      => $PINTO_ALPHANUMERIC_REGEX;
 Readonly our $PINTO_STACK_NAME_REGEX    => $PINTO_ALPHANUMERIC_REGEX;
 Readonly our $PINTO_PROPERTY_NAME_REGEX => $PINTO_ALPHANUMERIC_REGEX;
+Readonly our $PINTO_REVISION_ID_REGEX   => $PINTO_HEXADECIMAL_UUID_REGEX;
 
 #------------------------------------------------------------------------------
 1;
 
-
+__END__
 
 =pod
 
@@ -115,7 +120,7 @@ Pinto::Constants - Constants used across the Pinto utilities
 
 =head1 VERSION
 
-version 0.064
+version 0.065_01
 
 =head1 AUTHOR
 
@@ -129,6 +134,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__

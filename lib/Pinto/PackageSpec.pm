@@ -5,13 +5,13 @@ package Pinto::PackageSpec;
 use Moose;
 
 use MooseX::Types::Moose qw(Str);
-use Pinto::Types qw(Vers);
+use Pinto::Types qw(Version);
 
 use overload ('""' => 'to_string');
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.064'; # VERSION
+our $VERSION = '0.065_01'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ has name => (
 
 has version => (
     is      => 'ro',
-    isa     => Vers,
+    isa     => Version,
     coerce  => 1,
     default => sub { version->parse(0) }
 );
@@ -59,7 +59,7 @@ __PACKAGE__->meta->make_immutable;
 #------------------------------------------------------------------------------
 1;
 
-
+__END__
 
 =pod
 
@@ -71,7 +71,7 @@ Pinto::PackageSpec - Specifies a package by name and version
 
 =head1 VERSION
 
-version 0.064
+version 0.065_01
 
 =head1 METHODS
 
@@ -92,7 +92,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

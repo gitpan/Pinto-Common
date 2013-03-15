@@ -23,7 +23,7 @@ my %module_build_args = (
     "Jeffrey Ryan Thalhammer <jeff\@imaginative-software.com>"
   ],
   "dist_name" => "Pinto-Common",
-  "dist_version" => "0.064",
+  "dist_version" => "0.065_01",
   "license" => "perl",
   "module_name" => "Pinto::Common",
   "recommends" => {},
@@ -53,6 +53,7 @@ my %module_build_args = (
     "Throwable::Error" => 0,
     "Try::Tiny" => 0,
     "URI" => 0,
+    "UUID::Tiny" => 0,
     "base" => 0,
     "namespace::autoclean" => 0,
     "overload" => 0,

@@ -1,8 +1,11 @@
 package TestClass;
 
 use Moose;
-use Pinto::Types qw( File Dir Uri Io Author Vers PropertyName
-                     StackName StackAll StackDefault PkgSpec DistSpec Specs );
+use Pinto::Types qw( File Dir Uri Io AuthorID Version PropertyName
+                     StackName StackAll StackDefault
+                     PkgSpec PkgSpecList
+                     DistSpec DistSpecList
+                     SpecList RevisionID );
 
 #-----------------------------------------------------------------------------
 
@@ -32,7 +35,7 @@ has io  => (
 
 has author => (
     is  => 'rw',
-    isa => Author,
+    isa => AuthorID,
 );
 
 has stack => (
@@ -57,7 +60,7 @@ has property => (
 
 has version => (
     is  => 'rw',
-    isa => Vers,
+    isa => Version,
     coerce => 1,
 );
 
@@ -67,15 +70,33 @@ has pkg => (
     coerce => 1,
 );
 
+has pkgs => (
+    is     => 'rw',
+    isa    => PkgSpecList,
+    coerce => 1,
+);
+
 has dist => (
     is     => 'rw',
     isa    => DistSpec,
     coerce => 1,
 );
 
+has dists => (
+    is     => 'rw',
+    isa    => DistSpecList,
+    coerce => 1,
+);
+
 has targets => (
     is     => 'rw',
-    isa    => Specs,
+    isa    => SpecList,
+    coerce => 1,
+);
+
+has revision => (
+    is     => 'rw',
+    isa    => RevisionID,
     coerce => 1,
 );
 

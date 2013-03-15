@@ -5,20 +5,20 @@ package Pinto::DistributionSpec;
 use Moose;
 
 use MooseX::Types::Moose qw(ArrayRef Str);
-use Pinto::Types qw(Author);
+use Pinto::Types qw(AuthorID);
 
 use overload ('""' => 'to_string');
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.064'; # VERSION
+our $VERSION = '0.065_01'; # VERSION
 
 #------------------------------------------------------------------------------
 
 
 has author => (
     is       => 'ro',
-    isa      => Author,
+    isa      => AuthorID,
     required => 1,
 );
 
@@ -108,7 +108,7 @@ __PACKAGE__->meta->make_immutable;
 #------------------------------------------------------------------------------
 1;
 
-
+__END__
 
 =pod
 
@@ -120,7 +120,7 @@ Pinto::DistributionSpec - Specifies a distribution by author and path fragments
 
 =head1 VERSION
 
-version 0.064
+version 0.065_01
 
 =head1 METHODS
 
@@ -146,7 +146,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

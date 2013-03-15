@@ -1,13 +1,14 @@
-package Pinto::Types;
-
 # ABSTRACT: Moose types used within Pinto
+
+package Pinto::Types;
 
 use strict;
 use warnings;
 
-use MooseX::Types -declare => [ qw( Author Uri Dir File Files Io Vers StackName
-                                    StackAll StackDefault PropertyName PkgSpec
-                                    StackObject DistSpec Spec Specs) ];
+use MooseX::Types -declare => [ qw( AuthorID Username Uri Dir File FileList Io Version
+                                    StackName StackAll StackDefault PropertyName PkgSpec
+                                    PkgSpecList StackObject DistSpec DistSpecList
+                                    Spec SpecList RevisionID RevisionHead) ];
 
 use MooseX::Types::Moose qw( Str Num ScalarRef ArrayRef Undef
                              HashRef FileHandle Object Int );
@@ -19,6 +20,7 @@ use IO::String;
 use IO::Handle;
 use IO::File;
 
+
 use Pinto::SpecFactory;
 use Pinto::Constants qw(:all);
 
@@ -27,14 +29,21 @@ use namespace::autoclean;
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = '0.064'; # VERSION
+our $VERSION = '0.065_01'; # VERSION
 
 #-----------------------------------------------------------------------------
 
-subtype Author,
+subtype AuthorID,
   as Str,
   where   { $_ =~ $PINTO_AUTHOR_REGEX },
   message { 'The author id (' . (defined() ? $_ : 'undef') . ') must be alphanumeric' };
+
+#-----------------------------------------------------------------------------
+
+subtype Username,
+  as Str,
+  where   { $_ =~ $PINTO_USERNAME_REGEX },
+  message { 'The username (' . (defined() ? $_ : 'undef') . ') must be alphanumeric' };
 
 #-----------------------------------------------------------------------------
 
@@ -68,13 +77,13 @@ subtype PropertyName,
 
 #-----------------------------------------------------------------------------
 
-class_type Vers, {class => 'version'};
+class_type Version, {class => 'version'};
 
-coerce Vers,
+coerce Version,
   from Str,
   via { version->parse($_) };
 
-coerce Vers,
+coerce Version,
   from Num,
   via { version->parse($_) };
 
@@ -104,9 +113,9 @@ coerce File,
 
 #-----------------------------------------------------------------------------
 
-subtype Files, as ArrayRef[File];
+subtype FileList, as ArrayRef[File];
 
-coerce Files,
+coerce FileList,
   from File,          via { [ $_ ] },
   from Str,           via { [ Path::Class::File->new($_) ] },
   from ArrayRef[Str], via { [ map { Path::Class::File->new($_) } @$_ ] };
@@ -130,14 +139,34 @@ coerce DistSpec,
 
 #-----------------------------------------------------------------------------
 
-subtype Specs,
-  as ArrayRef[PkgSpec| DistSpec];    ## no critic qw(ProhibitBitwiseOperators);
+subtype SpecList,
+  as ArrayRef[PkgSpec | DistSpec];    ## no critic qw(ProhibitBitwiseOperators);
 
-coerce Specs,
+coerce SpecList,
   from  PkgSpec,            via { [ $_ ] },
   from  DistSpec,           via { [ $_ ] },
   from  Str,                via { [ Pinto::SpecFactory->make_spec($_) ] },
   from  ArrayRef[Str],      via { [ map { Pinto::SpecFactory->make_spec($_) } @$_ ] };
+
+#-----------------------------------------------------------------------------
+
+subtype DistSpecList,
+  as ArrayRef[DistSpec];    ## no critic qw(ProhibitBitwiseOperators);
+
+coerce DistSpecList,
+  from  DistSpec,           via { [ $_ ] },
+  from  Str,                via { [ Pinto::DistributionSpec->new($_) ] },
+  from  ArrayRef[Str],      via { [ map { Pinto::DistributionSpec->new($_) } @$_ ] };
+
+#-----------------------------------------------------------------------------
+
+subtype PkgSpecList,
+  as ArrayRef[PkgSpec];    ## no critic qw(ProhibitBitwiseOperators);
+
+coerce PkgSpecList,
+  from  DistSpec,           via { [ $_ ] },
+  from  Str,                via { [ Pinto::PackageSpec->new($_) ] },
+  from  ArrayRef[Str],      via { [ map { Pinto::PackageSpec->new($_) } @$_ ] };
 
 #-----------------------------------------------------------------------------
 
@@ -151,9 +180,24 @@ coerce Io,
 
 #-----------------------------------------------------------------------------
 
+subtype RevisionID,
+  as Str,
+  where   { $_ =~ $PINTO_REVISION_ID_REGEX and length($_) >= 4 },
+  message { 'The revision id (' . (defined() ? $_ : 'undef') . ') must be a hexadecimal string of 4 or more chars' };
+
+coerce RevisionID,
+    from Str,        via { lc $_ };
+
+#-----------------------------------------------------------------------------
+
+subtype RevisionHead, as Undef;
+
+#-----------------------------------------------------------------------------
+
+
 1;
 
-
+__END__
 
 =pod
 
@@ -165,7 +209,7 @@ Pinto::Types - Moose types used within Pinto
 
 =head1 VERSION
 
-version 0.064
+version 0.065_01
 
 =head1 AUTHOR
 
@@ -179,6 +223,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
