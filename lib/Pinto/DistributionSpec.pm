@@ -3,15 +3,17 @@
 package Pinto::DistributionSpec;
 
 use Moose;
-
+use MooseX::MarkAsMethods (autoclean => 1);
 use MooseX::Types::Moose qw(ArrayRef Str);
+
 use Pinto::Types qw(AuthorID);
+use Pinto::Util qw(throw);
 
 use overload ('""' => 'to_string');
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.065_02'; # VERSION
+our $VERSION = '0.065_03'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -59,7 +61,7 @@ around BUILDARGS => sub {
         my $archive  = pop @path_parts;    # Last element
         my $subdirs  = [ @path_parts ];    # Everything else
 
-        confess "Invalid distribution spec: $args[0]"
+        throw "Invalid distribution spec: $args[0]"
             if not ($author and $archive);
 
         @args = (author => $author, subdirs => $subdirs, archive => $archive);
@@ -120,7 +122,7 @@ Pinto::DistributionSpec - Specifies a distribution by author and path fragments
 
 =head1 VERSION
 
-version 0.065_02
+version 0.065_03
 
 =head1 METHODS
 
@@ -136,7 +138,7 @@ context.  Returns the same result as the C<path> method.
 
 =head1 AUTHOR
 
-Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>
+Jeffrey Ryan Thalhammer <jeff@stratopan.com>
 
 =head1 COPYRIGHT AND LICENSE
 

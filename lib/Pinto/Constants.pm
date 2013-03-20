@@ -11,7 +11,7 @@ use base 'Exporter';
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.065_02'; # VERSION
+our $VERSION = '0.065_03'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -34,6 +34,9 @@ Readonly our @EXPORT_OK => qw(
     $PINTO_COLOR_1
     $PINTO_COLOR_2
 
+    $PINTO_LOCK_TYPE_SHARED
+    $PINTO_LOCK_TYPE_EXCLUSIVE
+
     $PINTO_STACK_NAME_ALL
 
     $PINTO_AUTHOR_REGEX
@@ -48,6 +51,7 @@ Readonly our %EXPORT_TAGS => (
     color  => [ grep { m/COLOR/x }  @EXPORT_OK ],
     server => [ grep { m/SERVER/x } @EXPORT_OK ],
     regex  => [ grep { m/REGEX/x }  @EXPORT_OK ],
+    lock   => [ grep { m/LOCK/x }   @EXPORT_OK ],
 );
 
 #------------------------------------------------------------------------------
@@ -88,6 +92,11 @@ Readonly our $PINTO_COLOR_2 => 2;
 
 #------------------------------------------------------------------------------
 
+Readonly our $PINTO_LOCK_TYPE_SHARED    => 'SH';
+Readonly our $PINTO_LOCK_TYPE_EXCLUSIVE => 'EX';
+
+#------------------------------------------------------------------------------
+
 Readonly our $PINTO_STACK_NAME_ALL  => '%';
 
 #------------------------------------------------------------------------------
@@ -116,11 +125,11 @@ Pinto::Constants - Constants used across the Pinto utilities
 
 =head1 VERSION
 
-version 0.065_02
+version 0.065_03
 
 =head1 AUTHOR
 
-Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>
+Jeffrey Ryan Thalhammer <jeff@stratopan.com>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -21,7 +21,7 @@ Pinto::Manual - Entry point for Pinto documentation
 
 =head1 VERSION
 
-version 0.065_02
+version 0.065_03
 
 =head1 TABLE OF CONTENTS
 
@@ -58,7 +58,7 @@ still in the alpha stage.  But it definitely worth investigation.
 
 =head1 AUTHOR
 
-Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>
+Jeffrey Ryan Thalhammer <jeff@stratopan.com>
 
 =head1 COPYRIGHT AND LICENSE
 

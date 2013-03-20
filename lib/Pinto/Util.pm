@@ -5,10 +5,10 @@ package Pinto::Util;
 use strict;
 use warnings;
 use version;
+use base qw(Exporter);
 
 use Carp;
 use DateTime;
-use Try::Tiny;
 use Path::Class;
 use Digest::MD5;
 use Digest::SHA;
@@ -19,15 +19,10 @@ use Readonly;
 
 use Pinto::Globals;
 use Pinto::Constants qw(:all);
-use Pinto::Exception qw(throw);
-
-use namespace::autoclean;
-
-use base qw(Exporter);
 
 #-------------------------------------------------------------------------------
 
-our $VERSION = '0.065_02'; # VERSION
+our $VERSION = '0.065_03'; # VERSION
 
 #-------------------------------------------------------------------------------
 
@@ -52,6 +47,7 @@ Readonly our @EXPORT_OK => qw(
     parse_dist_path
     sha256
     title_text
+    throw
     trim_text
     truncate_text
     user_colors
@@ -60,6 +56,55 @@ Readonly our @EXPORT_OK => qw(
 );
 
 Readonly our %EXPORT_TAGS => ( all => \@EXPORT_OK );
+
+#-------------------------------------------------------------------------------
+
+
+sub throw {
+    my ($error) = @_;
+
+    # Rethrowing...
+    die $error if itis($error, 'Pinto::Exception');  ## no critic (Carping)
+
+    require Pinto::Exception;
+    Pinto::Exception->throw(message => $error);
+
+    return; # Should never get here
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub debug {
+    my ($it) = @_;
+
+    # TODO: Use Carp instead?
+
+    return 1 if not $ENV{PINTO_DEBUG};
+
+    $it = $it->() if ref $it eq 'CODE';
+    my ($file, $line) = (caller)[1,2];
+    print { *STDERR } "$it in $file at line $line\n";
+
+    return 1;
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub whine {
+    my ($message) = @_;
+
+    if ($ENV{DEBUG}) {
+        Carp::cluck($message);
+        return 1;
+    }
+
+    chomp $message;
+    warn $message . "\n";
+
+    return 1;
+}
 
 #-------------------------------------------------------------------------------
 
@@ -98,7 +143,7 @@ sub parse_dist_path {
         return ($author, $archive);
     }
 
-    confess "Unable to parse path: $path";
+    throw "Unable to parse path: $path";
 }
 
 #-------------------------------------------------------------------------------
@@ -116,8 +161,8 @@ sub isa_perl {
 sub mtime {
     my ($file) = @_;
 
-    confess 'Must supply a file' if not $file;
-    confess "$file does not exist" if not -e $file;
+    throw 'Must supply a file' if not $file;
+    throw "$file does not exist" if not -e $file;
 
     return (stat $file)[9];
 }
@@ -128,8 +173,8 @@ sub mtime {
 sub md5 {
     my ($file) = @_;
 
-    confess 'Must supply a file' if not $file;
-    confess "$file does not exist" if not -e $file;
+    throw 'Must supply a file' if not $file;
+    throw "$file does not exist" if not -e $file;
 
     my $fh = $file->openr();
     my $md5 = Digest::MD5->new->addfile($fh)->hexdigest();
@@ -143,8 +188,8 @@ sub md5 {
 sub sha256 {
     my ($file) = @_;
 
-    confess 'Must supply a file' if not $file;
-    confess "$file does not exist" if not -e $file;
+    throw 'Must supply a file' if not $file;
+    throw "$file does not exist" if not -e $file;
 
     my $fh = $file->openr();
     my $sha256 = Digest::SHA->new(256)->addfile($fh)->hexdigest();
@@ -212,7 +257,7 @@ sub current_username {
 
     my $username =  $ENV{PINTO_USERNAME} || $ENV{USER} || $ENV{LOGIN} || $ENV{USERNAME} || $ENV{LOGNAME};
 
-    croak "Unable to determine your username.  Set PINTO_USERNAME." if not $username;
+    throw "Unable to determine your username.  Set PINTO_USERNAME." if not $username;
 
     return $username
 }
@@ -337,7 +382,8 @@ sub mksymlink {
     my ($from, $to) = @_;
 
     # TODO: Try to add Win32 support here, somehow.
-    symlink $to, $from or croak "symlink to $to from $from failed: $!";
+    debug "Linking $to to $from";
+    symlink $to, $from or throw "symlink to $to from $from failed: $!";
 
     return 1;
 }
@@ -362,42 +408,13 @@ sub uuid {
 
 #-------------------------------------------------------------------------------
 
+
 sub user_colors {
     my $colors = $ENV{PINTO_COLORS} || $ENV{PINTO_COLOURS};
 
     return $PINTO_DEFAULT_COLORS if not $colors;
 
     return [ split m/\s* , \s*/x, $colors ];
-}
-
-#-------------------------------------------------------------------------------
-
-
-sub debug {
-    my ($it) = @_;
-
-    # TODO: Use Carp instead?
-
-    return 1 if not $ENV{PINTO_DEBUG};
-
-    $it = $it->() if ref $it eq 'CODE';
-    my ($file, $line) = (caller)[1,2];
-    print { *STDERR } "$it in $file at line $line\n";
-
-    return 1;
-}
-
-#-------------------------------------------------------------------------------
-
-
-sub whine {
-    my ($message) = @_;
-
-    chomp $message;
-
-    warn $message . "\n";
-
-    return 1;
 }
 
 #-------------------------------------------------------------------------------
@@ -415,7 +432,7 @@ Pinto::Util - Static utility functions for Pinto
 
 =head1 VERSION
 
-version 0.065_02
+version 0.065_03
 
 =head1 DESCRIPTION
 
@@ -424,6 +441,26 @@ you to see here (yet).  All API documentation is purely for my own
 reference.
 
 =head1 FUNCTIONS
+
+=head2 throw($message)
+
+=head2 throw($exception_object)
+
+Throws a L<Pinto::Exception> with the given message.  If given a reference
+to a L<Pinto::Exception> object, then it just throws it again.
+
+=head2 debug( $message )
+
+=head2 debug( sub {...} )
+
+Writes the message on STDERR if the C<PINTO_DEBUG> environment variable is true.
+If the argument is a subroutine, it will be invoked and its output will be
+written instead.  Always returns true.
+
+=head2 whine( $message )
+
+Just calls warn(), but always appends the newline so that line numbers are
+suppressed.
 
 =head2 author_dir( @base, $author )
 
@@ -564,22 +601,15 @@ Returns true if C<$string> is the name of a system property.
 Returns a UUID as a string.  Currently, the UUID is derived from
 random numbers.
 
-=head2 debug( $message )
+=head2 user_colors()
 
-=head2 debug( sub {...} )
-
-Writes the message on STDERR if the C<PINTO_DEBUG> environment variable is true.
-If the argument is a subroutine, it will be invoked and its output will be
-written instead.  Always returns true.
-
-=head2 whine( $message )
-
-Just calls warn(), but always appends the newline so that line numbers are
-suppressed.
+Returns a reference to an array containing the names of the colors pinto 
+can use.  This can be influenced by setting the C<PINTO_COLORS> or 
+C<PINTO_COLOURS> environment variables.
 
 =head1 AUTHOR
 
-Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>
+Jeffrey Ryan Thalhammer <jeff@stratopan.com>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -4,15 +4,15 @@ package Pinto::SpecFactory;
 
 use strict;
 use warnings;
+use namespace::autoclean;
 
-use Carp;
 use Class::Load;
 
-use namespace::autoclean;
+use Pinto::Util qw(throw); 
 
 #-------------------------------------------------------------------------------
 
-our $VERSION = '0.065_02'; # VERSION
+our $VERSION = '0.065_03'; # VERSION
 
 #-------------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ sub make_spec {
     }
     else {
 
-      croak "Don't know how to make spec from $arg";
+      throw "Don't know how to make spec from $arg";
     }
 
     Class::Load::load_class($spec_class);
@@ -58,7 +58,7 @@ Pinto::SpecFactory - Create Spec objects from strings
 
 =head1 VERSION
 
-version 0.065_02
+version 0.065_03
 
 =head1 METHODS
 
@@ -69,7 +69,7 @@ L<Pinto::PackageSpec> object constructed from the given C<$string>.
 
 =head1 AUTHOR
 
-Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>
+Jeffrey Ryan Thalhammer <jeff@stratopan.com>
 
 =head1 COPYRIGHT AND LICENSE
 

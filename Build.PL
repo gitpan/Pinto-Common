@@ -20,10 +20,10 @@ my %module_build_args = (
   },
   "dist_abstract" => "Common libraries for the L<Pinto> suite",
   "dist_author" => [
-    "Jeffrey Ryan Thalhammer <jeff\@imaginative-software.com>"
+    "Jeffrey Ryan Thalhammer <jeff\@stratopan.com>"
   ],
   "dist_name" => "Pinto-Common",
-  "dist_version" => "0.065_02",
+  "dist_version" => "0.065_03",
   "license" => "perl",
   "module_name" => "Pinto::Common",
   "recommends" => {},
@@ -43,7 +43,6 @@ my %module_build_args = (
     "IO::String" => 0,
     "Module::Corelist" => 0,
     "Moose" => 0,
-    "Moose::Exporter" => 0,
     "Moose::Role" => 0,
     "MooseX::MarkAsMethods" => 0,
     "MooseX::Types" => 0,
@@ -54,7 +53,6 @@ my %module_build_args = (
     "Readonly" => 0,
     "Scalar::Util" => 0,
     "Throwable::Error" => 0,
-    "Try::Tiny" => 0,
     "URI" => 0,
     "UUID::Tiny" => 0,
     "base" => 0,

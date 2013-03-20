@@ -21,7 +21,7 @@ Pinto::Manual::Introduction - Why Pinto exists
 
 =head1 VERSION
 
-version 0.065_02
+version 0.065_03
 
 =head1 GOALS
 
@@ -166,7 +166,7 @@ Presents a condensed summary of L<pinto> commands.
 
 =head1 AUTHOR
 
-Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>
+Jeffrey Ryan Thalhammer <jeff@stratopan.com>
 
 =head1 COPYRIGHT AND LICENSE
 

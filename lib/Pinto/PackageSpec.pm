@@ -10,14 +10,14 @@ use Module::Corelist;
 use English qw(-no_match_vars);
 
 use Pinto::Types qw(Version);
-use Pinto::Exception qw(throw);
+use Pinto::Util qw(throw);
 
 use version;
 use overload ('""' => 'to_string');
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.065_02'; # VERSION
+our $VERSION = '0.065_03'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -52,6 +52,7 @@ around BUILDARGS => sub {
 
 #------------------------------------------------------------------------------
 
+
 sub is_core {
     my ($self, %args) = @_;
 
@@ -67,8 +68,8 @@ sub is_core {
     return 1;
 }
 
-
 #-------------------------------------------------------------------------------
+
 
 sub is_perl {
     my ($self) = @_;
@@ -103,9 +104,21 @@ Pinto::PackageSpec - Specifies a package by name and version
 
 =head1 VERSION
 
-version 0.065_02
+version 0.065_03
 
 =head1 METHODS
+
+=head2 is_core
+
+=head2 is_core(in => $version)
+
+Returns true if this package is satisfied by the perl core as-of a particular
+version.  If the version is not specified, it defaults to whatever version
+you are using now.
+
+=head2 is_perl()
+
+Returns true if this package is perl itself.
 
 =head2 to_string()
 
@@ -114,7 +127,7 @@ whenever the PackageSpec is evaluated in string context.
 
 =head1 AUTHOR
 
-Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>
+Jeffrey Ryan Thalhammer <jeff@stratopan.com>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -3,31 +3,19 @@
 package Pinto::Exception;
 
 use Moose;
-use Moose::Exporter;
-
-use namespace::autoclean;
+use MooseX::MarkAsMethods (autoclean => 1);
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.065_02'; # VERSION
+our $VERSION = '0.065_03'; # VERSION
 
 #------------------------------------------------------------------------------
 
-extends 'Throwable::Error';
+extends qw(Throwable::Error);
 
 #------------------------------------------------------------------------------
 
-Moose::Exporter->setup_import_methods( as_is => [ throw => \&throw ] );
-
-#------------------------------------------------------------------------------
-# HACK: I'm not sure this will work with subclasses
-
-
-sub throw { return __PACKAGE__->SUPER::throw(@_) }
-
-#------------------------------------------------------------------------------
-
-__PACKAGE__->meta->make_immutable( inline_constructor => 0 );
+__PACKAGE__->meta->make_immutable;
 
 #------------------------------------------------------------------------------
 1;
@@ -44,17 +32,11 @@ Pinto::Exception - Base class for Pinto exceptions
 
 =head1 VERSION
 
-version 0.065_02
-
-=head1 FUNCTIONS
-
-=head2 throw( $message )
-
-Throws an exception (of this class) with the given message.
+version 0.065_03
 
 =head1 AUTHOR
 
-Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>
+Jeffrey Ryan Thalhammer <jeff@stratopan.com>
 
 =head1 COPYRIGHT AND LICENSE
 
