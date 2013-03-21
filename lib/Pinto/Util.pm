@@ -22,7 +22,7 @@ use Pinto::Constants qw(:all);
 
 #-------------------------------------------------------------------------------
 
-our $VERSION = '0.065_03'; # VERSION
+our $VERSION = '0.065_04'; # VERSION
 
 #-------------------------------------------------------------------------------
 
@@ -37,6 +37,8 @@ Readonly our @EXPORT_OK => qw(
     decamelize
     indent_text
     interpolate
+    is_blank
+    is_not_blank
     is_interactive
     is_system_prop
     isa_perl
@@ -418,6 +420,26 @@ sub user_colors {
 }
 
 #-------------------------------------------------------------------------------
+
+
+sub is_blank {
+    my ($string) = @_;
+
+    return 1 if not $string;
+    return 0 if $string =~ m/ \S /x;
+    return 1;
+}
+
+#-------------------------------------------------------------------------------
+
+
+sub is_not_blank {
+    my ($string) = @_;
+
+    return ! is_blank($string);
+}
+
+#-------------------------------------------------------------------------------
 1;
 
 __END__
@@ -432,7 +454,7 @@ Pinto::Util - Static utility functions for Pinto
 
 =head1 VERSION
 
-version 0.065_03
+version 0.065_04
 
 =head1 DESCRIPTION
 
@@ -606,6 +628,14 @@ random numbers.
 Returns a reference to an array containing the names of the colors pinto 
 can use.  This can be influenced by setting the C<PINTO_COLORS> or 
 C<PINTO_COLOURS> environment variables.
+
+=head2 is_blank($string)
+
+Returns true if the string is undefined, empty, or contains only whitespace.
+
+=head2 is_not_blank($string)
+
+Returns true if the string contains any non-whitespace characters.
 
 =head1 AUTHOR
 
