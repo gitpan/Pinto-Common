@@ -22,7 +22,7 @@ use Pinto::Constants qw(:all);
 
 #-------------------------------------------------------------------------------
 
-our $VERSION = '0.065_04'; # VERSION
+our $VERSION = '0.066'; # VERSION
 
 #-------------------------------------------------------------------------------
 
@@ -69,7 +69,7 @@ sub throw {
     die $error if itis($error, 'Pinto::Exception');  ## no critic (Carping)
 
     require Pinto::Exception;
-    Pinto::Exception->throw(message => $error);
+    Pinto::Exception->throw(message => "$error");
 
     return; # Should never get here
 }
@@ -454,7 +454,7 @@ Pinto::Util - Static utility functions for Pinto
 
 =head1 VERSION
 
-version 0.065_04
+version 0.066
 
 =head1 DESCRIPTION
 

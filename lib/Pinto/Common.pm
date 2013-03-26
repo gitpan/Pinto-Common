@@ -7,7 +7,7 @@ use warnings;
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.065_04'; # VERSION
+our $VERSION = '0.066'; # VERSION
 
 #------------------------------------------------------------------------------
 1;
@@ -26,7 +26,7 @@ Pinto::Common - Common libraries for the L<Pinto> suite
 
 =head1 VERSION
 
-version 0.065_04
+version 0.066
 
 =head1 DESCRIPTION
 

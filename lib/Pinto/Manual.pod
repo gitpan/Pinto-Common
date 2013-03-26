@@ -21,7 +21,7 @@ Pinto::Manual - Entry point for Pinto documentation
 
 =head1 VERSION
 
-version 0.065_04
+version 0.066
 
 =head1 TABLE OF CONTENTS
 
@@ -32,6 +32,10 @@ The manual consists of the following documents
 =item L<Pinto::Manual::Introduction>
 
 Explains the goals, terminology, and concepts in L<Pinto>.
+
+=item L<Pinto::Manual::Installing>
+
+Some suggestions for installing L<Pinto>.
 
 =item L<Pinto::Manual::Tutorial>
 

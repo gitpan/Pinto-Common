@@ -24,6 +24,7 @@ Common
 Manual
 Tutorial
 QuickStart
+Installing
 SpecFactory
 Introduction
 DistributionSpec

@@ -13,6 +13,7 @@ lib/Pinto/DistributionSpec.pm
 lib/Pinto/Exception.pm
 lib/Pinto/Globals.pm
 lib/Pinto/Manual.pod
+lib/Pinto/Manual/Installing.pod
 lib/Pinto/Manual/Introduction.pod
 lib/Pinto/Manual/QuickStart.pod
 lib/Pinto/Manual/Tutorial.pod
