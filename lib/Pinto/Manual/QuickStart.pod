@@ -21,7 +21,7 @@ Pinto::Manual::QuickStart - A condensed summary of Pinto
 
 =head1 VERSION
 
-version 0.066
+version 0.067
 
 =head1 CREATING THE REPOSITORY
 

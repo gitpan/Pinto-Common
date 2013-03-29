@@ -23,7 +23,7 @@ my %module_build_args = (
     "Jeffrey Ryan Thalhammer <jeff\@stratopan.com>"
   ],
   "dist_name" => "Pinto-Common",
-  "dist_version" => "0.066",
+  "dist_version" => "0.067",
   "license" => "perl",
   "module_name" => "Pinto::Common",
   "recommends" => {},
@@ -41,7 +41,7 @@ my %module_build_args = (
     "IO::Handle" => 0,
     "IO::Interactive" => 0,
     "IO::String" => 0,
-    "Module::CoreList" => 0,
+    "Module::CoreList" => "2.85",
     "Moose" => 0,
     "Moose::Role" => 0,
     "MooseX::MarkAsMethods" => 0,
