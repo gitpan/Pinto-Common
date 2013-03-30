@@ -11,6 +11,7 @@ all_pod_files_spelling_ok('bin', 'lib');
 __DATA__
 Git's
 SHA
+stratopan
 Jeffrey
 Ryan
 Thalhammer

@@ -1,8 +1,17 @@
+0.068     2013-03-29 23:36:45 America/Los_Angeles
+
+    * No code changes.
+    
+    * Revised Pinto::Manual::Installing.
+
 0.067     2013-03-28 20:26:28 America/Los_Angeles
 
-    No code changes.  Just fine-tuning dependency versions. 
+    * No code changes.
 
-    Thank you CPAN Testers!
+    * Now requires Module::Corelist 2.85 or later, so you can target perls
+    even newer than the one you have installed now.
+
+    * Thank you CPAN Testers!
 
 0.066     2013-03-25 21:06:00 America/Los_Angeles
 
