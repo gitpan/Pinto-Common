@@ -21,9 +21,14 @@ Pinto::Manual::QuickStart - A condensed summary of Pinto
 
 =head1 VERSION
 
-version 0.068
+version 0.069
 
-=head1 CREATING THE REPOSITORY
+=head1 INSTALLING PINTO
+
+  curl -L http://getpinto.stratopan.com | bash
+  source ~/opt/local/pinto/etc/bashrc
+
+=head1 CREATING A REPOSITORY
 
   # A new repository with default stack named "master"
   pinto -r /repo/dir
@@ -31,7 +36,7 @@ version 0.068
   # A new repository with default stack named "dev"
   pinto -r /repo/dir dev
 
-=head1 BROWSING THE REPOSITORY
+=head1 BROWSING A REPOSITORY
 
   # See all packages in the default stack
   pinto -r /repo/dir list
@@ -187,9 +192,11 @@ version 0.068
 
 L<Pinto::Manual::Tutorial>
 
-L<Pinto>
+L<Pinto::Manual::Installing>
 
-L<pinto>
+L<Pinto> (the library)
+
+L<pinto> (the command)
 
 =head1 AUTHOR
 
